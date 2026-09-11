@@ -1,0 +1,6 @@
+{
+  "name": "Durrat AI Media",
+  "description": "Professional UGC ads, AI content creation, and practical social media training agency.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
