@@ -185,7 +185,22 @@ async function startServer() {
     }
   });
 
-  // 4. Vite middleware for dev / static for production
+  // 4. SEO Endpoints: explicit sitemap.xml and robots.txt routes
+  app.get('/sitemap.xml', (req, res) => {
+    const sitemapPath = process.env.NODE_ENV === 'production'
+      ? path.join(process.cwd(), 'dist', 'sitemap.xml')
+      : path.join(process.cwd(), 'public', 'sitemap.xml');
+    res.type('text/xml').sendFile(sitemapPath);
+  });
+
+  app.get('/robots.txt', (req, res) => {
+    const robotsPath = process.env.NODE_ENV === 'production'
+      ? path.join(process.cwd(), 'dist', 'robots.txt')
+      : path.join(process.cwd(), 'public', 'robots.txt');
+    res.type('text/plain').sendFile(robotsPath);
+  });
+
+  // 5. Vite middleware for dev / static for production
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },

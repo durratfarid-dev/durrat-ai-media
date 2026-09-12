@@ -19,26 +19,37 @@ import { PaymentPage } from './pages/PaymentPage';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>(() => {
-    const hash = window.location.hash.replace('#', '') as PageId;
+    const cleanPath = window.location.pathname.replace(/^\/+|\/+$/g, '') as PageId;
     const validPages: PageId[] = ['home', 'ugc', 'ai-course', 'social-course', 'contact', 'payment'];
+    if (validPages.includes(cleanPath)) {
+      return cleanPath;
+    }
+    const hash = window.location.hash.replace('#', '') as PageId;
     return validPages.includes(hash) ? hash : 'home';
   });
 
   const [isQuickEditOpen, setIsQuickEditOpen] = useState(false);
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
 
-  // Sync hash with page
+  // Sync hash and path with page
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleUrlChange = () => {
+      const cleanPath = window.location.pathname.replace(/^\/+|\/+$/g, '') as PageId;
       const hash = window.location.hash.replace('#', '') as PageId;
       const validPages: PageId[] = ['home', 'ugc', 'ai-course', 'social-course', 'contact', 'payment'];
-      if (validPages.includes(hash)) {
+      if (validPages.includes(cleanPath)) {
+        setCurrentPage(cleanPath);
+      } else if (validPages.includes(hash)) {
         setCurrentPage(hash);
       }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+      window.removeEventListener('popstate', handleUrlChange);
+    };
   }, []);
 
   const navigateTo = (page: PageId) => {
