@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { useConfig } from '../context/ConfigContext';
+import { useLanguage } from '../context/LanguageContext';
 import { 
   CreditCard, 
   AlertTriangle, 
   Copy, 
   Check, 
   Mail, 
-  Building2, 
   ShieldCheck, 
-  FileText,
-  MessageCircle,
-  ExternalLink,
-  Info
+  MessageCircle, 
+  ExternalLink 
 } from 'lucide-react';
 
 interface PaymentPageProps {
@@ -20,6 +18,7 @@ interface PaymentPageProps {
 
 export const PaymentPage: React.FC<PaymentPageProps> = ({ onOpenQuickEdit }) => {
   const { config } = useConfig();
+  const { t } = useLanguage();
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const handleCopy = (text: string, fieldId: string) => {
@@ -59,21 +58,21 @@ Thank you!`);
   };
 
   return (
-    <div className="space-y-20 pb-24">
+    <div className="space-y-20 pb-24 text-left rtl:text-right">
       {/* 1. HERO HEADER */}
       <section className="relative pt-12 md:pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-2xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/80 text-cyan-400 text-xs font-bold uppercase tracking-wider">
             <CreditCard className="w-3.5 h-3.5" />
-            <span>Official Transfer Information</span>
+            <span>{t.paymentPage.badge}</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Course Payment
+            {t.paymentPage.title}
           </h1>
 
           <p className="text-base text-slate-300 leading-relaxed">
-            Direct bank transfer instructions for enrolling in Durrat AI Media training programs.
+            {t.paymentPage.subtitle}
           </p>
         </div>
       </section>
@@ -88,13 +87,13 @@ Thank you!`);
                 Bank Wire Transfer
               </span>
               <h2 className="text-2xl font-bold text-white mt-1">
-                Official Account Information
+                {t.paymentPage.bankTransferTitle}
               </h2>
             </div>
             {onOpenQuickEdit && (
               <button
                 onClick={onOpenQuickEdit}
-                className="self-start sm:self-auto px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 hover:text-white border border-slate-700 transition-colors"
+                className="self-start sm:self-auto px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 hover:text-white border border-slate-700 transition-colors cursor-pointer"
               >
                 Edit Bank Details
               </button>
@@ -107,7 +106,7 @@ Thank you!`);
             <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <span className="text-xs font-mono uppercase text-slate-400 block mb-0.5">
-                  Bank Name:
+                  {t.paymentPage.bankName}:
                 </span>
                 <span className="text-base font-bold text-white tracking-wide">
                   {config.bankDetails.bankName}
@@ -115,10 +114,10 @@ Thank you!`);
               </div>
               <button
                 onClick={() => handleCopy(config.bankDetails.bankName, 'bankName')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors self-start sm:self-auto"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors self-start sm:self-auto cursor-pointer"
               >
                 {copiedField === 'bankName' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedField === 'bankName' ? 'Copied' : 'Copy'}</span>
+                <span>{copiedField === 'bankName' ? t.contactPage.copiedBtn : t.contactPage.copyBtn}</span>
               </button>
             </div>
 
@@ -126,7 +125,7 @@ Thank you!`);
             <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <span className="text-xs font-mono uppercase text-slate-400 block mb-0.5">
-                  Account Name:
+                  {t.paymentPage.accountName}:
                 </span>
                 <span className="text-base font-bold text-white tracking-wide">
                   {config.bankDetails.accountName}
@@ -134,10 +133,10 @@ Thank you!`);
               </div>
               <button
                 onClick={() => handleCopy(config.bankDetails.accountName, 'accountName')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors self-start sm:self-auto"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors self-start sm:self-auto cursor-pointer"
               >
                 {copiedField === 'accountName' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedField === 'accountName' ? 'Copied' : 'Copy'}</span>
+                <span>{copiedField === 'accountName' ? t.contactPage.copiedBtn : t.contactPage.copyBtn}</span>
               </button>
             </div>
 
@@ -145,7 +144,7 @@ Thank you!`);
             <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <span className="text-xs font-mono uppercase text-slate-400 block mb-0.5">
-                  IBAN:
+                  {t.paymentPage.iban}:
                 </span>
                 <span className="text-base font-bold text-cyan-300 font-mono tracking-wider">
                   {config.bankDetails.iban}
@@ -153,10 +152,10 @@ Thank you!`);
               </div>
               <button
                 onClick={() => handleCopy(config.bankDetails.iban, 'iban')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors self-start sm:self-auto"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors self-start sm:self-auto cursor-pointer"
               >
                 {copiedField === 'iban' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedField === 'iban' ? 'Copied' : 'Copy'}</span>
+                <span>{copiedField === 'iban' ? t.contactPage.copiedBtn : t.contactPage.copyBtn}</span>
               </button>
             </div>
 
@@ -164,7 +163,7 @@ Thank you!`);
             <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <span className="text-xs font-mono uppercase text-slate-400 block mb-0.5">
-                  Payment Reference:
+                  {t.paymentPage.reference}:
                 </span>
                 <span className="text-base font-bold text-white font-mono tracking-wide">
                   {config.bankDetails.paymentReference}
@@ -172,10 +171,10 @@ Thank you!`);
               </div>
               <button
                 onClick={() => handleCopy(config.bankDetails.paymentReference, 'ref')}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors self-start sm:self-auto"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-medium text-slate-300 hover:text-white border border-slate-700 transition-colors self-start sm:self-auto cursor-pointer"
               >
                 {copiedField === 'ref' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedField === 'ref' ? 'Copied' : 'Copy'}</span>
+                <span>{copiedField === 'ref' ? t.contactPage.copiedBtn : t.contactPage.copyBtn}</span>
               </button>
             </div>
           </div>
@@ -184,10 +183,10 @@ Thank you!`);
           <div className="flex justify-end">
             <button
               onClick={handleCopyAllBankDetails}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-cyan-300 border border-slate-700 transition-colors cursor-pointer"
             >
               {copiedField === 'all' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-              <span>{copiedField === 'all' ? 'All Details Copied!' : 'Copy Complete Bank Details'}</span>
+              <span>{copiedField === 'all' ? t.contactPage.copiedBtn : t.contactPage.copyBtn}</span>
             </button>
           </div>
 
@@ -199,7 +198,7 @@ Thank you!`);
                 Important Verification Notice
               </span>
               <p className="text-xs text-amber-200/90 leading-relaxed">
-                Please make sure your payment details are correct before making a transfer.
+                {t.paymentPage.verificationInstructions}
               </p>
             </div>
           </div>
@@ -209,12 +208,12 @@ Thank you!`);
             <div className="flex items-center gap-2 text-cyan-400">
               <ShieldCheck className="w-5 h-5" />
               <h3 className="text-sm font-bold uppercase tracking-wider text-white">
-                Next Step: Confirm Enrollment
+                {t.paymentPage.step1}
               </h3>
             </div>
 
             <p className="text-sm text-slate-300 leading-relaxed font-medium">
-              After payment, send your payment proof to{' '}
+              {t.paymentPage.step2}{' '}
               <a
                 href={`mailto:${config.contactEmail}`}
                 className="text-cyan-400 underline hover:text-cyan-300 font-mono"
@@ -231,7 +230,7 @@ Thank you!`);
                 className="w-full sm:w-auto px-6 py-3.5 text-xs font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Mail className="w-4 h-4" />
-                <span>Email Payment Proof Now</span>
+                <span>{t.paymentPage.step3}</span>
               </button>
 
               <a
@@ -239,10 +238,10 @@ Thank you!`);
                 href={config.whatsAppChannelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 hover:bg-emerald-950/70 border border-emerald-800/80 rounded-xl transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 hover:bg-emerald-950/70 border border-emerald-800/80 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Channel Updates</span>
+                <span>{t.common.joinWhatsApp}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>

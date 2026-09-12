@@ -1,7 +1,8 @@
 import React from 'react';
 import { PageId } from '../types';
 import { useConfig } from '../context/ConfigContext';
-import { Mail, MessageCircle, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { Mail, MessageCircle, ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
@@ -9,6 +10,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const { config } = useConfig();
+  const { t } = useLanguage();
 
   const handleLinkClick = (page: PageId) => {
     onNavigate(page);
@@ -31,68 +33,68 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               {config.tagline}
             </p>
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
-              Professional UGC ad making for brands and businesses, paired with practical online training in AI prompting, AI video creation, and high-impact social media growth.
+              {t.footer.about}
             </p>
           </div>
 
           {/* Navigation Links Column */}
           <div className="md:col-span-3 space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
-              Navigation
+              {t.footer.navigation}
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <button
                   id="footer-link-home"
                   onClick={() => handleLinkClick('home')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors cursor-pointer"
                 >
-                  Home
+                  {t.nav.home}
                 </button>
               </li>
               <li>
                 <button
                   id="footer-link-ugc"
                   onClick={() => handleLinkClick('ugc')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors cursor-pointer"
                 >
-                  UGC Ads
+                  {t.nav.ugc}
                 </button>
               </li>
               <li>
                 <button
                   id="footer-link-ai"
                   onClick={() => handleLinkClick('ai-course')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors cursor-pointer"
                 >
-                  AI + AI Video
+                  {t.nav.aiCourse}
                 </button>
               </li>
               <li>
                 <button
                   id="footer-link-social"
                   onClick={() => handleLinkClick('social-course')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors cursor-pointer"
                 >
-                  Social Media
+                  {t.nav.socialCourse}
                 </button>
               </li>
               <li>
                 <button
                   id="footer-link-payment"
                   onClick={() => handleLinkClick('payment')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors cursor-pointer"
                 >
-                  Course Payment
+                  {t.nav.payment}
                 </button>
               </li>
               <li>
                 <button
                   id="footer-link-contact"
                   onClick={() => handleLinkClick('contact')}
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors cursor-pointer"
                 >
-                  Contact
+                  {t.nav.contact}
                 </button>
               </li>
             </ul>
@@ -101,11 +103,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           {/* Contact & Channel Column */}
           <div className="md:col-span-4 space-y-4">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-200">
-              Direct Communication
+              {t.footer.contactTitle}
             </h3>
             <div className="space-y-3 text-sm">
               <div>
-                <span className="block text-xs text-slate-400 mb-1">Email Inquiries:</span>
+                <span className="block text-xs text-slate-400 mb-1">{t.contactPage.emailUsDirectly}:</span>
                 <a
                   id="footer-email-link"
                   href={`mailto:${config.contactEmail}`}
@@ -117,7 +119,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
 
               <div>
-                <span className="block text-xs text-slate-400 mb-1">WhatsApp Channel:</span>
+                <span className="block text-xs text-slate-400 mb-1">{t.common.joinWhatsApp}:</span>
                 <a
                   id="footer-whatsapp-link"
                   href={config.whatsAppChannelUrl}
@@ -126,8 +128,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-950/40 border border-emerald-800/60 text-emerald-400 hover:text-emerald-300 hover:bg-emerald-950/60 transition-all font-medium text-xs"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-400" />
-                  <span>Join Our WhatsApp Channel</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 ml-0.5" />
+                  <span>{t.common.joinWhatsApp}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 mx-0.5" />
                 </a>
               </div>
             </div>
@@ -137,12 +139,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Copyright Notice */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <p id="footer-copyright">
-            © 2026 {config.brandName}. All rights reserved.
+            © 2026 {config.brandName}. {t.footer.copyright}
           </p>
-          <div className="flex items-center space-x-6 text-slate-400">
-            <span>AI • UGC • Social Media</span>
-            <span className="inline-block w-1 h-1 rounded-full bg-slate-700" />
-            <span>Digital Agency & Online Training</span>
+          <div className="flex items-center space-x-4 rtl:space-x-reverse text-slate-400">
+            <span>{t.footer.rightsReserved}</span>
           </div>
         </div>
       </div>

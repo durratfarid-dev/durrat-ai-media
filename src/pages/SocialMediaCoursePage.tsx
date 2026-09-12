@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageId } from '../types';
 import { useConfig } from '../context/ConfigContext';
+import { useLanguage } from '../context/LanguageContext';
 import { socialCourseCurriculum } from '../data/siteConfig';
 import { 
   Share2, 
@@ -20,6 +21,7 @@ interface SocialMediaCoursePageProps {
 
 export const SocialMediaCoursePage: React.FC<SocialMediaCoursePageProps> = ({ onNavigate }) => {
   const { config } = useConfig();
+  const { t, isRTL } = useLanguage();
 
   const handleJoinCourse = () => {
     onNavigate('payment');
@@ -27,7 +29,7 @@ export const SocialMediaCoursePage: React.FC<SocialMediaCoursePageProps> = ({ on
   };
 
   return (
-    <div className="space-y-24 pb-24">
+    <div className="space-y-24 pb-24 text-left rtl:text-right">
       {/* 1. HERO HEADER */}
       <section className="relative pt-12 md:pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -37,14 +39,14 @@ export const SocialMediaCoursePage: React.FC<SocialMediaCoursePageProps> = ({ on
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
-            Social Media <br className="hidden sm:inline" />
+            {t.services.cards.socialMedia.title} <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-300">
               Mastery
             </span>
           </h1>
 
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Learn how to create content and build your presence on YouTube, Facebook and Instagram.
+            {t.services.cards.socialMedia.sentence}
           </p>
 
           <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -53,8 +55,8 @@ export const SocialMediaCoursePage: React.FC<SocialMediaCoursePageProps> = ({ on
               onClick={handleJoinCourse}
               className="w-full sm:w-auto px-8 py-3.5 text-sm font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl shadow-[0_0_25px_rgba(6,182,212,0.4)] transition-all cursor-pointer flex items-center justify-center gap-2"
             >
-              <span>Join Social Media Course</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{t.services.cards.socialMedia.cta}</span>
+              <ArrowRight className="w-4 h-4 rtl:rotate-180" />
             </button>
             <button
               id="social-course-curriculum-scroll-btn"

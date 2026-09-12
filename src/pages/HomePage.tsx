@@ -1,23 +1,31 @@
 import React from 'react';
 import { PageId } from '../types';
 import { useConfig } from '../context/ConfigContext';
-import { whyChooseUsPoints } from '../data/siteConfig';
+import { useLanguage } from '../context/LanguageContext';
 import { 
+  MapPin, 
+  Star, 
+  Smartphone, 
   Video, 
-  Sparkles, 
-  Share2, 
+  Bot, 
+  TrendingUp, 
+  Heart, 
+  Flame, 
+  MessageCircle, 
   ArrowRight, 
   CheckCircle2, 
+  ExternalLink, 
+  Sparkles, 
+  Phone, 
+  Navigation, 
+  Store, 
+  Clock, 
+  Search, 
+  Check, 
+  ShieldCheck, 
+  Share2, 
   Play, 
-  Layers, 
-  TrendingUp, 
-  MessageCircle, 
-  ExternalLink,
-  Flame,
-  ShieldCheck,
-  Cpu,
-  MonitorSmartphone,
-  Eye
+  Users
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -26,6 +34,7 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   const { config } = useConfig();
+  const { t, isRTL } = useLanguage();
 
   const handleScrollToServices = () => {
     const el = document.getElementById('services-section');
@@ -34,432 +43,650 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     }
   };
 
+  const handleScrollToGoogleMaps = () => {
+    const el = document.getElementById('google-business-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // 9 Visual Stickers/Badges connected directly to multi-language translation
+  const heroStickers = [
+    {
+      id: 'maps-pin',
+      icon: <MapPin className="w-4 h-4 text-rose-400" />,
+      badge: t.hero.stickers.mapsPin,
+      color: 'from-rose-500/20 to-amber-500/20 border-rose-500/40 text-rose-300',
+    },
+    {
+      id: 'google-review',
+      icon: <Star className="w-4 h-4 text-amber-400 fill-amber-400" />,
+      badge: t.hero.stickers.review,
+      color: 'from-amber-500/20 to-yellow-500/20 border-amber-500/40 text-amber-300',
+    },
+    {
+      id: 'smartphone',
+      icon: <Smartphone className="w-4 h-4 text-sky-400" />,
+      badge: t.hero.stickers.mobile,
+      color: 'from-sky-500/20 to-blue-500/20 border-sky-500/40 text-sky-300',
+    },
+    {
+      id: 'video-camera',
+      icon: <Video className="w-4 h-4 text-cyan-400" />,
+      badge: t.hero.stickers.ugcVideo,
+      color: 'from-cyan-500/20 to-teal-500/20 border-cyan-500/40 text-cyan-300',
+    },
+    {
+      id: 'ai-robot',
+      icon: <Bot className="w-4 h-4 text-purple-400" />,
+      badge: t.hero.stickers.aiRobot,
+      color: 'from-purple-500/20 to-indigo-500/20 border-purple-500/40 text-purple-300',
+    },
+    {
+      id: 'growth-arrow',
+      icon: <TrendingUp className="w-4 h-4 text-emerald-400" />,
+      badge: t.hero.stickers.growth,
+      color: 'from-emerald-500/20 to-teal-500/20 border-emerald-500/40 text-emerald-300',
+    },
+    {
+      id: 'trust-heart',
+      icon: <Heart className="w-4 h-4 text-red-400 fill-red-400" />,
+      badge: t.hero.stickers.trust,
+      color: 'from-rose-500/20 to-red-500/20 border-rose-500/40 text-rose-300',
+    },
+    {
+      id: 'trending-fire',
+      icon: <Flame className="w-4 h-4 text-orange-400 fill-orange-400" />,
+      badge: t.hero.stickers.trending,
+      color: 'from-orange-500/20 to-amber-500/20 border-orange-500/40 text-orange-300',
+    },
+    {
+      id: 'whatsapp-chat',
+      icon: <MessageCircle className="w-4 h-4 text-emerald-400 fill-emerald-400/30" />,
+      badge: t.hero.stickers.whatsapp,
+      color: 'from-emerald-500/20 to-green-500/20 border-emerald-500/40 text-emerald-300',
+    },
+  ];
+
   return (
-    <div className="space-y-24 pb-20">
+    <div className="space-y-16 sm:space-y-24 pb-20 overflow-x-hidden">
       {/* 1. HERO SECTION */}
-      <section className="relative pt-12 md:pt-20 lg:pt-24 overflow-hidden">
-        {/* Subtle high-tech ambient gradient */}
+      <section className="relative pt-8 sm:pt-14 md:pt-20 overflow-hidden">
+        {/* Friendly ambient colored glow accents */}
         <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-cyan-500/10 blur-[130px] rounded-full" />
-          <div className="absolute top-48 right-10 w-[400px] h-[300px] bg-blue-600/10 blur-[140px] rounded-full" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[320px] sm:w-[650px] h-[250px] sm:h-[350px] bg-cyan-500/15 blur-[100px] sm:blur-[140px] rounded-full" />
+          <div className="absolute top-44 -left-20 w-[240px] sm:w-[400px] h-[240px] sm:h-[350px] bg-emerald-500/10 blur-[100px] sm:blur-[130px] rounded-full" />
+          <div className="absolute top-36 -right-20 w-[240px] sm:w-[420px] h-[240px] sm:h-[350px] bg-purple-600/15 blur-[100px] sm:blur-[140px] rounded-full" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-6">
-            {/* Business & Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 border border-slate-700/80 shadow-inner">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              <span className="text-xs font-semibold tracking-wide text-slate-200 uppercase">
-                {config.brandName}
+          <div className="text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
+            
+            {/* Friendly Market Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-sm backdrop-blur-md">
+              <span className="text-sm">🇸🇦</span>
+              <span className="text-xs font-semibold tracking-wide text-slate-200">
+                {t.hero.marketBadge}
               </span>
-              <span className="text-slate-600">•</span>
-              <span className="text-xs font-medium tracking-wider text-cyan-400">
-                {config.tagline}
-              </span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse hidden sm:inline-block" />
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-              Create Better Content. <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500">
-                Grow Your Brand.
-              </span>{' '}
-              Learn AI.
-            </h1>
+            {/* Main Friendly Headline */}
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.18]">
+                {t.hero.headline}
+              </h1>
 
-            {/* Short Description */}
-            <p className="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
-              Professional UGC ads, AI content creation, and practical social media training.
-            </p>
+              {/* Subheadline */}
+              <p className="text-lg sm:text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-emerald-300 to-amber-300">
+                {t.hero.subheadline}
+              </p>
 
-            {/* Main CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-              <button
-                id="hero-get-ugc-btn"
-                onClick={() => onNavigate('ugc')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl shadow-[0_0_25px_rgba(6,182,212,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all duration-200 cursor-pointer"
+              {/* Short Simple Line */}
+              <p className="text-base sm:text-lg text-slate-300 font-medium leading-relaxed max-w-2xl mx-auto px-2">
+                {t.hero.description}
+              </p>
+            </div>
+
+            {/* Two Large Friendly CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 pt-2 max-w-md sm:max-w-none mx-auto">
+              <a
+                id="hero-whatsapp-talk-btn"
+                href={config.whatsAppChannelUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-9 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-2xl shadow-[0_10px_25px_rgba(16,185,129,0.35)] hover:shadow-[0_12px_30px_rgba(16,185,129,0.5)] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <Video className="w-5 h-5 text-slate-950" />
-                <span>Get UGC Ad</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </button>
+                <MessageCircle className="w-6 h-6 fill-current text-white shrink-0" />
+                <span>{t.hero.whatsappCta}</span>
+              </a>
 
               <button
-                id="hero-explore-courses-btn"
+                id="hero-services-dekhein-btn"
                 onClick={handleScrollToServices}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-slate-200 hover:text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-xl transition-all duration-200 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-9 py-4 text-base sm:text-lg font-bold text-slate-100 hover:text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-cyan-400/60 rounded-2xl shadow-md transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <Sparkles className="w-5 h-5 text-cyan-400" />
-                <span>Explore Courses</span>
+                <Flame className="w-5 h-5 text-amber-400 fill-amber-400 shrink-0" />
+                <span>{t.hero.servicesCta}</span>
               </button>
             </div>
-          </div>
 
-          {/* PROFESSIONAL VISUAL SECTION */}
-          {/* Representing AI content creation, UGC advertising, social media and digital creativity */}
-          <div className="mt-14 max-w-5xl mx-auto">
-            <div className="relative rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xl p-4 sm:p-6 lg:p-8 backdrop-blur-xl">
-              {/* Studio Header Bar */}
-              <div className="flex items-center justify-between pb-5 border-b border-slate-800">
-                <div className="flex items-center gap-2.5">
-                  <div className="flex space-x-1.5">
-                    <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+            {/* VISUAL STICKERS & BADGES AROUND HERO */}
+            <div className="pt-4 sm:pt-6">
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-4xl mx-auto">
+                {heroStickers.map((sticker) => (
+                  <div
+                    key={sticker.id}
+                    className={`inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl border bg-gradient-to-r ${sticker.color} bg-slate-950/80 backdrop-blur-md shadow-sm text-xs sm:text-sm font-semibold transition-all duration-200 hover:scale-105 cursor-default select-none`}
+                  >
+                    <span className="shrink-0">{sticker.icon}</span>
+                    <span className="whitespace-nowrap">{sticker.badge}</span>
                   </div>
-                  <span className="text-xs font-medium text-slate-400 ml-2 font-mono">
-                    Durrat AI Media • Creative Engine Workspace
-                  </span>
-                </div>
-                <div className="hidden sm:flex items-center gap-3 text-xs text-slate-400">
-                  <span className="flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                    UGC Pipeline Active
-                  </span>
-                  <span className="text-slate-700">|</span>
-                  <span className="text-cyan-400 font-mono">4K 60FPS AI Video</span>
-                </div>
-              </div>
-
-              {/* Visual Showcase Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
-                {/* Visual Card 1: UGC Ad Showcase */}
-                <div className="bg-slate-950/70 border border-slate-800/90 rounded-xl p-4 flex flex-col justify-between space-y-4 hover:border-cyan-500/40 transition-colors">
-                  <div>
-                    <div className="flex items-center justify-between text-xs text-slate-400 mb-3">
-                      <span className="inline-flex items-center gap-1 font-semibold text-cyan-400 uppercase tracking-wider text-[10px]">
-                        <Video className="w-3.5 h-3.5" />
-                        UGC Ad Creative
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-400 text-[10px] font-bold border border-emerald-800/60">
-                        +380% ROAS
-                      </span>
-                    </div>
-                    {/* Simulated High-Converting UGC Phone Screen */}
-                    <div className="relative aspect-[9/12] w-full rounded-lg bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 flex flex-col justify-between p-3 overflow-hidden">
-                      <div className="flex justify-between items-start">
-                        <span className="px-2 py-0.5 rounded bg-slate-950/90 text-white text-[10px] font-mono border border-slate-700">
-                          Hook: 0-3s
-                        </span>
-                        <div className="w-6 h-6 rounded-full bg-slate-800/80 flex items-center justify-center text-cyan-400">
-                          <Eye className="w-3 h-3" />
-                        </div>
-                      </div>
-
-                      <div className="text-center py-4">
-                        <div className="w-12 h-12 mx-auto rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-400 mb-2">
-                          <Play className="w-5 h-5 fill-cyan-400" />
-                        </div>
-                        <p className="text-xs font-semibold text-white">Product Demo & Review</p>
-                        <p className="text-[10px] text-slate-400 mt-0.5">Direct-Response Vertical Format</p>
-                      </div>
-
-                      <div className="bg-slate-900/90 p-2 rounded border border-slate-800 text-[11px] text-slate-300">
-                        <div className="flex justify-between text-[10px] text-slate-400 mb-1">
-                          <span>Audience Retention</span>
-                          <span className="text-emerald-400 font-bold">87.4%</span>
-                        </div>
-                        <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                          <div className="bg-cyan-400 h-full w-[87%]" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-xs text-slate-400 leading-snug">
-                    Authentic UGC ads engineered to bypass ad fatigue and convert scrollers into buyers.
-                  </p>
-                </div>
-
-                {/* Visual Card 2: AI Prompting & AI Video */}
-                <div className="bg-slate-950/70 border border-slate-800/90 rounded-xl p-4 flex flex-col justify-between space-y-4 hover:border-cyan-500/40 transition-colors">
-                  <div>
-                    <div className="flex items-center justify-between text-xs text-slate-400 mb-3">
-                      <span className="inline-flex items-center gap-1 font-semibold text-cyan-400 uppercase tracking-wider text-[10px]">
-                        <Cpu className="w-3.5 h-3.5" />
-                        AI Video Generation
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-cyan-950/80 text-cyan-400 text-[10px] font-mono border border-cyan-800/60">
-                        Gen-AI Pipeline
-                      </span>
-                    </div>
-
-                    <div className="aspect-[9/12] w-full rounded-lg bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 p-3 flex flex-col justify-between">
-                      <div className="space-y-2">
-                        <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-                          Prompt Matrix
-                        </div>
-                        <div className="p-2 rounded bg-slate-950 border border-slate-800 text-[10px] text-cyan-300 font-mono leading-relaxed">
-                          "Cinematic macro studio lighting, 8k textures, consistent character motion, dynamic camera pan..."
-                        </div>
-                      </div>
-
-                      <div className="space-y-1.5 py-2">
-                        <div className="flex items-center justify-between text-[10px] text-slate-400">
-                          <span>Image-to-Video Engine</span>
-                          <span className="text-cyan-400 font-mono">Ready</span>
-                        </div>
-                        <div className="flex items-center justify-between text-[10px] text-slate-400">
-                          <span>Consistent Characters</span>
-                          <span className="text-emerald-400 font-mono">Matched</span>
-                        </div>
-                        <div className="flex items-center justify-between text-[10px] text-slate-400">
-                          <span>Cinematic Lighting</span>
-                          <span className="text-cyan-400 font-mono">Photoreal</span>
-                        </div>
-                      </div>
-
-                      <div className="p-2 rounded bg-slate-900/90 border border-slate-800 text-center">
-                        <span className="text-[10px] text-slate-300 font-medium">
-                          Multi-Model Mastery: Midjourney, Runway, Kling, Sora workflows
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-xs text-slate-400 leading-snug">
-                    Master modern AI generation techniques for characters, story scenes, and visual effects.
-                  </p>
-                </div>
-
-                {/* Visual Card 3: Social Media Growth & Monetization */}
-                <div className="bg-slate-950/70 border border-slate-800/90 rounded-xl p-4 flex flex-col justify-between space-y-4 hover:border-cyan-500/40 transition-colors">
-                  <div>
-                    <div className="flex items-center justify-between text-xs text-slate-400 mb-3">
-                      <span className="inline-flex items-center gap-1 font-semibold text-cyan-400 uppercase tracking-wider text-[10px]">
-                        <TrendingUp className="w-3.5 h-3.5" />
-                        Multi-Platform Growth
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-blue-950/80 text-blue-400 text-[10px] font-bold border border-blue-800/60">
-                        YouTube • Meta • IG
-                      </span>
-                    </div>
-
-                    <div className="aspect-[9/12] w-full rounded-lg bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 p-3 flex flex-col justify-between">
-                      <div className="space-y-3">
-                        <div className="p-2.5 rounded bg-slate-950 border border-slate-800 flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 rounded bg-rose-950/80 text-rose-400 flex items-center justify-center text-[10px] font-bold">
-                              YT
-                            </div>
-                            <span className="text-[11px] font-medium text-white">YouTube Shorts</span>
-                          </div>
-                          <span className="text-[10px] text-emerald-400 font-mono font-bold">+140K Views</span>
-                        </div>
-
-                        <div className="p-2.5 rounded bg-slate-950 border border-slate-800 flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 rounded bg-pink-950/80 text-pink-400 flex items-center justify-center text-[10px] font-bold">
-                              IG
-                            </div>
-                            <span className="text-[11px] font-medium text-white">Instagram Reels</span>
-                          </div>
-                          <span className="text-[10px] text-emerald-400 font-mono font-bold">+94% Reach</span>
-                        </div>
-
-                        <div className="p-2.5 rounded bg-slate-950 border border-slate-800 flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <div className="w-6 h-6 rounded bg-blue-950/80 text-blue-400 flex items-center justify-center text-[10px] font-bold">
-                              FB
-                            </div>
-                            <span className="text-[11px] font-medium text-white">Facebook Reels</span>
-                          </div>
-                          <span className="text-[10px] text-emerald-400 font-mono font-bold">Monetized</span>
-                        </div>
-                      </div>
-
-                      <div className="p-2 rounded bg-slate-900/90 border border-slate-800 text-[11px] text-slate-300">
-                        <div className="text-[10px] text-slate-400 uppercase tracking-wider mb-1">
-                          Key Focus
-                        </div>
-                        <p className="text-[10px] text-slate-300 leading-snug">
-                          Viral hooks, thumbnail strategy, audience growth & monetization setups.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-xs text-slate-400 leading-snug">
-                    Turn attention into scalable reach and sustainable monetization channels.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
+
+            {/* Friendly Saudi Local Business Banner */}
+            <div className="pt-4 max-w-3xl mx-auto">
+              <div className="rounded-2xl bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/90 border border-slate-800 p-3.5 sm:p-4 text-xs sm:text-sm text-slate-300 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left rtl:sm:text-right">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-950 border border-emerald-800/80 flex items-center justify-center text-emerald-400 shrink-0">
+                    <Store className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="font-bold text-white block">{t.hero.shopOwnerBannerTitle}</span>
+                    <span className="text-slate-400 text-xs">{t.hero.shopOwnerBannerSubtitle}</span>
+                  </div>
+                </div>
+                <button
+                  onClick={handleScrollToGoogleMaps}
+                  className="w-full sm:w-auto px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 font-semibold text-xs border border-slate-700 transition-colors flex items-center justify-center gap-1.5 shrink-0 cursor-pointer"
+                >
+                  <MapPin className="w-3.5 h-3.5 text-rose-400" />
+                  <span>{t.hero.shopOwnerBannerBtn}</span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 2. THREE MAIN SERVICE CARDS */}
+      {/* 2. HOMEPAGE 4 LARGE VISUAL SERVICE CARDS */}
       <section id="services-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-cyan-400">
-            Our Core Offerings
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-800/70 text-cyan-400 text-xs font-bold uppercase tracking-widest">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>{t.services.badge}</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            {t.services.title}
           </h2>
-          <p className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            High-Impact Services & Practical Training
-          </p>
-          <p className="text-sm text-slate-400">
-            Whether you need custom UGC ads for your business or want to master AI & social content creation.
+          <p className="text-sm sm:text-base text-slate-300">
+            {t.services.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* CARD 1: UGC Ad Making */}
+        {/* 4 Large Visual Cards (2x2 on desktop, stacked on mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          
+          {/* CARD 1: 📍 Google Business Profile */}
           <div 
-            id="service-card-ugc"
-            className="group relative bg-slate-900/70 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/60 rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+            id="service-card-google-maps"
+            className="group relative bg-gradient-to-b from-slate-900/90 to-slate-950 border-2 border-slate-800 hover:border-emerald-500/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_35px_rgba(16,185,129,0.2)] text-left rtl:text-right"
           >
             <div>
-              <div className="w-14 h-14 rounded-xl bg-cyan-950/70 border border-cyan-800/60 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-105 transition-transform">
-                <Video className="w-7 h-7" />
+              {/* Card Header & Icon */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-emerald-950/80 border border-emerald-700/60 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform shadow-inner">
+                  <MapPin className="w-9 h-9 text-rose-400" />
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/90 text-emerald-300 border border-emerald-700/50 text-xs font-bold">
+                  <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  <span>{t.services.cards.googleMaps.tag}</span>
+                </div>
               </div>
-              <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-cyan-950 text-cyan-400 border border-cyan-800/70 mb-3">
-                Main Service
-              </span>
-              <h3 className="text-2xl font-bold text-white mb-3">
-                UGC Ad Making
+
+              {/* Title */}
+              <h3 className="text-2xl sm:text-3xl font-black text-white mb-2.5 flex items-center gap-2">
+                <span>{t.services.cards.googleMaps.title}</span>
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Professional UGC-style ads created for brands, products and businesses.
+
+              {/* Simple Sentence */}
+              <p className="text-slate-300 text-base leading-relaxed mb-6 font-medium">
+                {t.services.cards.googleMaps.sentence}
               </p>
-              <ul className="space-y-2 mb-8 text-xs text-slate-400">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>High-converting direct response hooks</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Optimized for TikTok, Instagram & Facebook Ads</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Professional editing, captions & formatting</span>
-                </li>
-              </ul>
+
+              {/* Visual Feature Tags */}
+              <div className="grid grid-cols-2 gap-2 mb-8 text-xs text-slate-300">
+                {t.services.cards.googleMaps.pills.map((pill, i) => (
+                  <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-slate-950/70 border border-slate-800">
+                    <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{pill}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
+            {/* CTA Button */}
+            <button
+              id="card-google-maps-btn"
+              onClick={handleScrollToGoogleMaps}
+              className="w-full py-4 px-5 text-center font-bold text-base text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-2xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 active:translate-y-0"
+            >
+              <span>{t.services.cards.googleMaps.cta}</span>
+              <ArrowRight className="w-5 h-5 rtl:rotate-180" />
+            </button>
+          </div>
+
+          {/* CARD 2: 🎥 UGC Ads */}
+          <div 
+            id="service-card-ugc"
+            className="group relative bg-gradient-to-b from-slate-900/90 to-slate-950 border-2 border-slate-800 hover:border-cyan-500/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_35px_rgba(6,182,212,0.2)] text-left rtl:text-right"
+          >
+            <div>
+              {/* Card Header & Icon */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-cyan-950/80 border border-cyan-700/60 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform shadow-inner">
+                  <Video className="w-9 h-9 text-cyan-400" />
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/90 text-cyan-300 border border-cyan-700/50 text-xs font-bold">
+                  <Flame className="w-3.5 h-3.5 text-orange-400 fill-orange-400" />
+                  <span>{t.services.cards.ugc.tag}</span>
+                </div>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl sm:text-3xl font-black text-white mb-2.5 flex items-center gap-2">
+                <span>{t.services.cards.ugc.title}</span>
+              </h3>
+
+              {/* Simple Sentence */}
+              <p className="text-slate-300 text-base leading-relaxed mb-6 font-medium">
+                {t.services.cards.ugc.sentence}
+              </p>
+
+              {/* Visual Feature Tags */}
+              <div className="grid grid-cols-2 gap-2 mb-8 text-xs text-slate-300">
+                {t.services.cards.ugc.pills.map((pill, i) => (
+                  <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-slate-950/70 border border-slate-800">
+                    <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                    <span className="truncate">{pill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Button */}
             <button
               id="card-get-ugc-btn"
               onClick={() => onNavigate('ugc')}
-              className="w-full py-3 px-4 text-center font-bold text-sm text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2"
+              className="w-full py-4 px-5 text-center font-bold text-base text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-2xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>Get UGC Ad</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{t.services.cards.ugc.cta}</span>
+              <ArrowRight className="w-5 h-5 text-slate-950 rtl:rotate-180" />
             </button>
           </div>
 
-          {/* CARD 2: AI Prompting + AI Video */}
+          {/* CARD 3: 🤖 AI Video */}
           <div 
             id="service-card-ai"
-            className="group relative bg-slate-900/70 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/60 rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+            className="group relative bg-gradient-to-b from-slate-900/90 to-slate-950 border-2 border-slate-800 hover:border-purple-500/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_35px_rgba(168,85,247,0.2)] text-left rtl:text-right"
           >
             <div>
-              <div className="w-14 h-14 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-105 transition-transform">
-                <Sparkles className="w-7 h-7" />
+              {/* Card Header & Icon */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-purple-950/80 border border-purple-700/60 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform shadow-inner">
+                  <Bot className="w-9 h-9 text-purple-400" />
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/90 text-purple-300 border border-purple-700/50 text-xs font-bold">
+                  <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+                  <span>{t.services.cards.aiVideo.tag}</span>
+                </div>
               </div>
-              <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-slate-800 text-slate-300 border border-slate-700 mb-3">
-                Online Training
-              </span>
-              <h3 className="text-2xl font-bold text-white mb-3">
-                AI Prompting + AI Video
+
+              {/* Title */}
+              <h3 className="text-2xl sm:text-3xl font-black text-white mb-2.5 flex items-center gap-2">
+                <span>{t.services.cards.aiVideo.title}</span>
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Learn how to create powerful AI images, videos, characters, stories and creative content.
+
+              {/* Simple Sentence */}
+              <p className="text-slate-300 text-base leading-relaxed mb-6 font-medium">
+                {t.services.cards.aiVideo.sentence}
               </p>
-              <ul className="space-y-2 mb-8 text-xs text-slate-400">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Writing effective image & video prompts</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Consistent characters & story animation</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Text-to-video & cinematic scene workflows</span>
-                </li>
-              </ul>
+
+              {/* Visual Feature Tags */}
+              <div className="grid grid-cols-2 gap-2 mb-8 text-xs text-slate-300">
+                {t.services.cards.aiVideo.pills.map((pill, i) => (
+                  <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-slate-950/70 border border-slate-800">
+                    <Check className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                    <span className="truncate">{pill}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
+            {/* CTA Button */}
             <button
               id="card-view-ai-course-btn"
               onClick={() => onNavigate('ai-course')}
-              className="w-full py-3 px-4 text-center font-semibold text-sm text-white bg-slate-800 hover:bg-slate-700 hover:text-cyan-300 border border-slate-700 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="w-full py-4 px-5 text-center font-bold text-base text-white bg-purple-600 hover:bg-purple-500 rounded-2xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>View Course</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{t.services.cards.aiVideo.cta}</span>
+              <ArrowRight className="w-5 h-5 rtl:rotate-180" />
             </button>
           </div>
 
-          {/* CARD 3: Social Media */}
+          {/* CARD 4: 📱 Social Media */}
           <div 
             id="service-card-social"
-            className="group relative bg-slate-900/70 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500/60 rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+            className="group relative bg-gradient-to-b from-slate-900/90 to-slate-950 border-2 border-slate-800 hover:border-pink-500/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 shadow-xl hover:shadow-[0_0_35px_rgba(244,63,94,0.2)] text-left rtl:text-right"
           >
             <div>
-              <div className="w-14 h-14 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-105 transition-transform">
-                <Share2 className="w-7 h-7" />
+              {/* Card Header & Icon */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-16 h-16 rounded-2xl bg-pink-950/80 border border-pink-700/60 flex items-center justify-center text-pink-400 group-hover:scale-105 transition-transform shadow-inner">
+                  <Smartphone className="w-9 h-9 text-pink-400" />
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-950/90 text-pink-300 border border-pink-700/50 text-xs font-bold">
+                  <TrendingUp className="w-3.5 h-3.5 text-pink-400" />
+                  <span>{t.services.cards.socialMedia.tag}</span>
+                </div>
               </div>
-              <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-slate-800 text-slate-300 border border-slate-700 mb-3">
-                Online Training
-              </span>
-              <h3 className="text-2xl font-bold text-white mb-3">
-                Social Media
+
+              {/* Title */}
+              <h3 className="text-2xl sm:text-3xl font-black text-white mb-2.5 flex items-center gap-2">
+                <span>{t.services.cards.socialMedia.title}</span>
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                Learn YouTube, Facebook and Instagram content creation, growth and monetization.
+
+              {/* Simple Sentence */}
+              <p className="text-slate-300 text-base leading-relaxed mb-6 font-medium">
+                {t.services.cards.socialMedia.sentence}
               </p>
-              <ul className="space-y-2 mb-8 text-xs text-slate-400">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>YouTube Shorts & long-form strategies</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Facebook Reels & page monetization basics</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Instagram engagement & profile optimization</span>
-                </li>
-              </ul>
+
+              {/* Visual Feature Tags */}
+              <div className="grid grid-cols-2 gap-2 mb-8 text-xs text-slate-300">
+                {t.services.cards.socialMedia.pills.map((pill, i) => (
+                  <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-slate-950/70 border border-slate-800">
+                    <Check className="w-3.5 h-3.5 text-pink-400 shrink-0" />
+                    <span className="truncate">{pill}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
+            {/* CTA Button */}
             <button
               id="card-view-social-course-btn"
               onClick={() => onNavigate('social-course')}
-              className="w-full py-3 px-4 text-center font-semibold text-sm text-white bg-slate-800 hover:bg-slate-700 hover:text-cyan-300 border border-slate-700 rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="w-full py-4 px-5 text-center font-bold text-base text-white bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 rounded-2xl transition-all shadow-md cursor-pointer flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>View Course</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{t.services.cards.socialMedia.cta}</span>
+              <ArrowRight className="w-5 h-5 rtl:rotate-180" />
             </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. DEDICATED SERVICE: 📍 GOOGLE BUSINESS PROFILE SECTION */}
+      <section id="google-business-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border-2 border-emerald-500/30 p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden text-left rtl:text-right">
+          
+          {/* Subtle Google Colors Accent line at top */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-red-500 via-yellow-500 to-green-500" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-bold">
+                <MapPin className="w-4 h-4 text-rose-400 shrink-0" />
+                <span>{t.googleBusiness.badge}</span>
+              </div>
+
+              {/* Title & Subtitle */}
+              <div className="space-y-3">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                  {t.googleBusiness.title}
+                </h2>
+                <p className="text-lg sm:text-xl font-bold text-emerald-300">
+                  {t.googleBusiness.subtitle}
+                </p>
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  {t.googleBusiness.description}
+                </p>
+              </div>
+
+              {/* The 8 Simple Service Points */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                {t.googleBusiness.features.map((point, index) => (
+                  <div 
+                    key={index}
+                    className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-950/80 border border-slate-800/90 text-slate-200 text-xs sm:text-sm font-medium hover:border-emerald-500/40 transition-colors"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>{point}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Crucial Ethical Policy Notice regarding verification */}
+              <div className="p-3.5 rounded-xl bg-slate-950/90 border border-slate-800 text-xs text-slate-400 flex items-start gap-2.5">
+                <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <p className="leading-relaxed">
+                  {t.googleBusiness.importantNotice}
+                </p>
+              </div>
+
+              {/* CTA Action */}
+              <div className="flex flex-col sm:flex-row items-center gap-3.5 pt-2">
+                <a
+                  id="google-maps-service-whatsapp-btn"
+                  href={config.whatsAppChannelUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-2xl shadow-[0_8px_20px_rgba(16,185,129,0.3)] transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <MapPin className="w-5 h-5 text-rose-300 fill-rose-300/40" />
+                  <span>{t.googleBusiness.cta}</span>
+                  <ExternalLink className="w-4 h-4 opacity-80" />
+                </a>
+
+                <button
+                  onClick={() => onNavigate('contact')}
+                  className="w-full sm:w-auto px-6 py-4 text-sm font-semibold text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-2xl transition-colors cursor-pointer"
+                >
+                  {t.common.contactUs}
+                </button>
+              </div>
+
+            </div>
+
+            {/* Right Interactive Visual Mockup Column (Google Maps Simulated Shop Profile) */}
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl bg-slate-950 border border-slate-800 p-4 sm:p-5 shadow-2xl space-y-4">
+                
+                {/* Search Bar Simulation */}
+                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-xs text-slate-400">
+                  <Search className="w-4 h-4 text-slate-400 shrink-0" />
+                  <span className="text-slate-200 font-medium truncate">{t.googleBusiness.mockup.searchPlaceholder}</span>
+                </div>
+
+                {/* Simulated Shop Listing Card */}
+                <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3.5">
+                  
+                  {/* Shop Name & Pin */}
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 text-[10px] font-bold border border-emerald-800/70">
+                          {t.googleBusiness.mockup.verifiedBadge}
+                        </span>
+                        <span className="text-[11px] text-slate-400 font-medium">{t.googleBusiness.mockup.businessType}</span>
+                      </div>
+                      <h4 className="text-lg font-bold text-white mt-1">
+                        {t.googleBusiness.mockup.sampleName}
+                      </h4>
+                      <p className="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
+                        <MapPin className="w-3.5 h-3.5 text-rose-400" />
+                        <span>{t.googleBusiness.mockup.sampleLocation}</span>
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
+                      <Store className="w-5 h-5" />
+                    </div>
+                  </div>
+
+                  {/* Rating Simulation */}
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="font-bold text-white">5.0</span>
+                    <div className="flex text-amber-400">
+                      {'★'.repeat(5)}
+                    </div>
+                    <span className="text-slate-400 text-[11px]">{t.googleBusiness.mockup.sampleRating}</span>
+                  </div>
+
+                  {/* Operational Status */}
+                  <div className="flex items-center gap-2 text-xs text-emerald-400 font-medium">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>{t.googleBusiness.mockup.timing}</span>
+                  </div>
+
+                  {/* Four Quick Action Buttons (Call, Directions, Share, Website) */}
+                  <div className="grid grid-cols-4 gap-2 pt-1">
+                    <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center flex flex-col items-center gap-1 hover:border-emerald-500/50 transition-colors">
+                      <Phone className="w-4 h-4 text-emerald-400" />
+                      <span className="text-[10px] text-slate-300 font-medium">{t.common.call}</span>
+                    </div>
+                    <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center flex flex-col items-center gap-1 hover:border-emerald-500/50 transition-colors">
+                      <Navigation className="w-4 h-4 text-sky-400" />
+                      <span className="text-[10px] text-slate-300 font-medium">{t.common.directions}</span>
+                    </div>
+                    <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center flex flex-col items-center gap-1 hover:border-emerald-500/50 transition-colors">
+                      <Share2 className="w-4 h-4 text-purple-400" />
+                      <span className="text-[10px] text-slate-300 font-medium">{t.common.share}</span>
+                    </div>
+                    <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center flex flex-col items-center gap-1 hover:border-emerald-500/50 transition-colors">
+                      <ExternalLink className="w-4 h-4 text-cyan-400" />
+                      <span className="text-[10px] text-slate-300 font-medium">{t.common.website}</span>
+                    </div>
+                  </div>
+
+                  {/* Photo & Catalog Thumbnails Simulation */}
+                  <div className="pt-2 border-t border-slate-800/80">
+                    <div className="text-[10px] uppercase font-bold text-slate-400 mb-1.5 flex items-center justify-between">
+                      <span>{t.googleBusiness.mockup.photosLabel}</span>
+                      <span className="text-emerald-400">100% {t.common.verified}</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-1.5">
+                      <div className="h-14 rounded-lg bg-slate-800/80 flex items-center justify-center text-[10px] text-slate-300 border border-slate-700">
+                        {t.googleBusiness.mockup.frontView}
+                      </div>
+                      <div className="h-14 rounded-lg bg-slate-800/80 flex items-center justify-center text-[10px] text-slate-300 border border-slate-700">
+                        {t.googleBusiness.mockup.insideShop}
+                      </div>
+                      <div className="h-14 rounded-lg bg-slate-800/80 flex items-center justify-center text-[10px] text-slate-300 border border-slate-700">
+                        {t.googleBusiness.mockup.topProducts}
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 3. WHY DURRAT AI MEDIA? SECTION */}
+      {/* 4. 3-STEP PROCESS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-slate-900/60 border border-slate-800/80 p-8 sm:p-12 lg:p-16">
-          <div className="max-w-3xl mb-12 space-y-3">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-cyan-400">
-              Built For Serious Results
-            </h2>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Why Durrat AI Media?
+        <div className="rounded-3xl bg-slate-900/60 border border-slate-800 p-6 sm:p-10 lg:p-12 space-y-8 text-center sm:text-left rtl:sm:text-right">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
+              {t.steps.badge}
+            </span>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">
+              {t.steps.title}
             </h3>
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              We combine real hands-on UGC advertising execution with actionable, modern digital education so you can scale your brand or master in-demand creator skills.
+            <p className="text-xs sm:text-sm text-slate-400">
+              {t.steps.subtitle}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyChooseUsPoints.map((point, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Step 1 */}
+            <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3 relative hover:border-slate-700 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-black text-base">
+                1
+              </div>
+              <h4 className="text-lg font-bold text-white">
+                {t.steps.step1Title}
+              </h4>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                {t.steps.step1Desc}
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3 relative hover:border-slate-700 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 flex items-center justify-center font-black text-base">
+                2
+              </div>
+              <h4 className="text-lg font-bold text-white">
+                {t.steps.step2Title}
+              </h4>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                {t.steps.step2Desc}
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3 relative hover:border-slate-700 transition-colors">
+              <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/40 flex items-center justify-center font-black text-base">
+                3
+              </div>
+              <h4 className="text-lg font-bold text-white">
+                {t.steps.step3Title}
+              </h4>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                {t.steps.step3Desc}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 5. WHY DURRAT AI MEDIA SECTION */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl bg-slate-900/60 border border-slate-800/80 p-6 sm:p-10 lg:p-12 space-y-8 text-left rtl:text-right">
+          <div className="max-w-3xl space-y-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
+              {t.whyUs.badge}
+            </span>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+              {t.whyUs.title}
+            </h3>
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              {t.whyUs.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {t.whyUs.points.map((point, index) => (
               <div 
                 key={index}
-                className="p-6 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-slate-700 transition-colors space-y-3"
+                className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800/80 hover:border-slate-700 transition-colors space-y-2.5"
               >
-                <div className="w-10 h-10 rounded-lg bg-cyan-950/60 border border-cyan-800/60 flex items-center justify-center text-cyan-400">
-                  <CheckCircle2 className="w-5 h-5" />
+                <div className="w-9 h-9 rounded-lg bg-cyan-950/60 border border-cyan-800/60 flex items-center justify-center text-cyan-400">
+                  <CheckCircle2 className="w-4 h-4" />
                 </div>
-                <h4 className="text-lg font-bold text-white">
+                <h4 className="text-base font-bold text-white">
                   {point.title}
                 </h4>
                 <p className="text-xs text-slate-400 leading-relaxed">
@@ -468,59 +695,58 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </div>
             ))}
 
-            {/* Sixth highlight card: Fast Turnaround & High Quality */}
-            <div className="p-6 rounded-2xl bg-slate-950/60 border border-slate-800/80 hover:border-slate-700 transition-colors space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-cyan-950/60 border border-cyan-800/60 flex items-center justify-center text-cyan-400">
-                <ShieldCheck className="w-5 h-5" />
+            {/* Sixth highlight card: Local Saudi Market Expertise */}
+            <div className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800/80 hover:border-slate-700 transition-colors space-y-2.5">
+              <div className="w-9 h-9 rounded-lg bg-emerald-950/60 border border-emerald-800/60 flex items-center justify-center text-emerald-400">
+                <Store className="w-4 h-4" />
               </div>
-              <h4 className="text-lg font-bold text-white">
-                Reliable Production Standards
+              <h4 className="text-base font-bold text-white">
+                {t.whyUs.localMarketTitle}
               </h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Direct communication, transparent revisions, and strict adherence to social advertising best practices.
+                {t.whyUs.localMarketDesc}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. STRONG CTA & WHATSAPP CHANNEL SECTION */}
+      {/* 6. BOTTOM CALL TO ACTION WITH DIRECT WHATSAPP */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-slate-800 p-8 sm:p-12 lg:p-16 text-center space-y-8">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <span className="text-xs font-semibold tracking-widest text-cyan-400 uppercase">
-              Take The Next Step
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-slate-900 via-slate-900 to-slate-950 border border-slate-800 p-8 sm:p-12 lg:p-14 text-center space-y-6">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-semibold tracking-widest text-emerald-400 uppercase">
+              {t.bottomCta.badge}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-              Ready to Create, Grow and Earn?
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+              {t.bottomCta.title}
             </h2>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Let's create high-converting UGC ads for your business or start your journey in AI and social media mastery today.
+              {t.bottomCta.description}
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* CTA Button: Contact Us */}
-            <button
-              id="cta-contact-us-btn"
-              onClick={() => onNavigate('contact')}
-              className="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl shadow-[0_0_25px_rgba(6,182,212,0.35)] transition-all cursor-pointer"
-            >
-              Contact Us
-            </button>
-
-            {/* WhatsApp Channel Button */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            {/* WhatsApp Button */}
             <a
-              id="cta-join-whatsapp-channel-btn"
+              id="bottom-cta-whatsapp-btn"
               href={config.whatsAppChannelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-semibold text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 hover:bg-emerald-950/60 border border-emerald-800/80 rounded-xl transition-all shadow-md"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-2xl shadow-[0_8px_25px_rgba(16,185,129,0.35)] transition-all transform hover:-translate-y-0.5 cursor-pointer"
             >
-              <MessageCircle className="w-5 h-5 text-emerald-400" />
-              <span>Join Our WhatsApp Channel</span>
-              <ExternalLink className="w-4 h-4" />
+              <MessageCircle className="w-5 h-5 fill-current text-white" />
+              <span>{t.bottomCta.whatsappBtn}</span>
             </a>
+
+            {/* Contact Us Page */}
+            <button
+              id="bottom-cta-contact-btn"
+              onClick={() => onNavigate('contact')}
+              className="w-full sm:w-auto px-8 py-4 text-base font-bold text-slate-200 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl transition-all cursor-pointer"
+            >
+              {t.bottomCta.contactBtn}
+            </button>
           </div>
         </div>
       </section>

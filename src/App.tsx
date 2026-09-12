@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { PageId } from './types';
 import { ConfigProvider } from './context/ConfigContext';
+import { LanguageProvider } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { FloatingAssistantButton } from './components/FloatingAssistantButton';
+import { FloatingLanguageSelector } from './components/FloatingLanguageSelector';
 import { AIAssistantModal } from './components/AIAssistantModal';
 import { QuickEditModal } from './components/QuickEditModal';
 
@@ -47,53 +49,58 @@ export default function App() {
 
   return (
     <ConfigProvider>
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
-        {/* Navigation Bar */}
-        <Navbar
-          currentPage={currentPage}
-          onNavigate={navigateTo}
-          onOpenQuickEdit={() => setIsQuickEditOpen(true)}
-        />
+      <LanguageProvider>
+        <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+          {/* Navigation Bar */}
+          <Navbar
+            currentPage={currentPage}
+            onNavigate={navigateTo}
+            onOpenQuickEdit={() => setIsQuickEditOpen(true)}
+          />
 
-        {/* Page Content */}
-        <main className="flex-1">
-          {currentPage === 'home' && <HomePage onNavigate={navigateTo} />}
-          {currentPage === 'ugc' && <UGCPage />}
-          {currentPage === 'ai-course' && <AICoursePage onNavigate={navigateTo} />}
-          {currentPage === 'social-course' && <SocialMediaCoursePage onNavigate={navigateTo} />}
-          {currentPage === 'contact' && <ContactPage />}
-          {currentPage === 'payment' && (
-            <PaymentPage onOpenQuickEdit={() => setIsQuickEditOpen(true)} />
-          )}
-        </main>
+          {/* Page Content */}
+          <main className="flex-1">
+            {currentPage === 'home' && <HomePage onNavigate={navigateTo} />}
+            {currentPage === 'ugc' && <UGCPage />}
+            {currentPage === 'ai-course' && <AICoursePage onNavigate={navigateTo} />}
+            {currentPage === 'social-course' && <SocialMediaCoursePage onNavigate={navigateTo} />}
+            {currentPage === 'contact' && <ContactPage />}
+            {currentPage === 'payment' && (
+              <PaymentPage onOpenQuickEdit={() => setIsQuickEditOpen(true)} />
+            )}
+          </main>
 
-        {/* Floating WhatsApp Quick Link */}
-        <FloatingWhatsApp />
+          {/* Floating WhatsApp Quick Link */}
+          <FloatingWhatsApp />
 
-        {/* Floating AI Assistant Trigger Button ("🤖 Durrat AI Assistant") */}
-        <FloatingAssistantButton
-          isOpen={isAssistantOpen}
-          onClick={() => setIsAssistantOpen(true)}
-        />
+          {/* Floating AI Assistant Trigger Button ("🤖 Durrat AI Assistant") */}
+          <FloatingAssistantButton
+            isOpen={isAssistantOpen}
+            onClick={() => setIsAssistantOpen(true)}
+          />
 
-        {/* Modern Interactive AI Customer Support & Intake Assistant */}
-        <AIAssistantModal
-          isOpen={isAssistantOpen}
-          onClose={() => setIsAssistantOpen(false)}
-          onNavigate={(page) => {
-            navigateTo(page);
-          }}
-        />
+          {/* Floating Scalable Multi-Language Selector */}
+          <FloatingLanguageSelector />
 
-        {/* Global Footer */}
-        <Footer onNavigate={navigateTo} />
+          {/* Modern Interactive AI Customer Support & Intake Assistant */}
+          <AIAssistantModal
+            isOpen={isAssistantOpen}
+            onClose={() => setIsAssistantOpen(false)}
+            onNavigate={(page) => {
+              navigateTo(page);
+            }}
+          />
 
-        {/* Owner Quick Edit Modal for Placeholders */}
-        <QuickEditModal
-          isOpen={isQuickEditOpen}
-          onClose={() => setIsQuickEditOpen(false)}
-        />
-      </div>
+          {/* Global Footer */}
+          <Footer onNavigate={navigateTo} />
+
+          {/* Owner Quick Edit Modal for Placeholders */}
+          <QuickEditModal
+            isOpen={isQuickEditOpen}
+            onClose={() => setIsQuickEditOpen(false)}
+          />
+        </div>
+      </LanguageProvider>
     </ConfigProvider>
   );
 }

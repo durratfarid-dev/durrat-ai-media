@@ -24,6 +24,17 @@ export const defaultSiteConfig: SiteConfig = {
   },
 };
 
+export const googleBusinessServicePoints = [
+  'Business Profile Setup',
+  'Google Maps Listing Assistance',
+  'Business Information Setup',
+  'Category & Services Setup',
+  'Photos & Logo Setup',
+  'Profile Optimization',
+  'Verification Guidance',
+  'Existing Profile Assistance',
+];
+
 export const ugcServicesList = [
   { title: 'Product UGC Ads', desc: 'Authentic hands-on reviews, unboxing, and real demonstration videos that build instant trust.' },
   { title: 'Social Media Ads', desc: 'High-converting ad creatives formatted for optimal engagement across social ad networks.' },

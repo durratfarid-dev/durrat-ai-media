@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface FloatingAssistantButtonProps {
   isOpen: boolean;
@@ -10,14 +10,16 @@ export const FloatingAssistantButton: React.FC<FloatingAssistantButtonProps> = (
   isOpen,
   onClick,
 }) => {
+  const { t } = useLanguage();
+
   if (isOpen) return null;
 
   return (
-    <aside aria-label="Durrat AI Assistant Quick Access" className="fixed bottom-6 right-6 z-40">
+    <aside aria-label="Durrat AI Assistant Quick Access" className="fixed bottom-6 right-4 sm:right-6 z-40">
       <button
         id="floating-durrat-ai-assistant-btn"
         onClick={onClick}
-        className="group relative flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full bg-slate-900/95 hover:bg-slate-850 text-cyan-300 hover:text-cyan-200 border border-cyan-500/50 hover:border-cyan-400 shadow-[0_4px_25px_rgba(6,182,212,0.35)] hover:shadow-[0_4px_30px_rgba(6,182,212,0.55)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+        className="group relative flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-full bg-slate-900/95 hover:bg-slate-850 text-cyan-300 hover:text-cyan-200 border border-cyan-500/50 hover:border-cyan-400 shadow-[0_4px_25px_rgba(6,182,212,0.35)] hover:shadow-[0_4px_30px_rgba(6,182,212,0.55)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer backdrop-blur-md"
         title="Open Durrat AI Assistant"
       >
         {/* Ambient background pulse */}
@@ -31,7 +33,7 @@ export const FloatingAssistantButton: React.FC<FloatingAssistantButtonProps> = (
 
         {/* Button Text */}
         <span className="text-xs sm:text-sm font-bold tracking-wide text-white">
-          🤖 Durrat AI Assistant
+          {t.assistant.triggerBtn}
         </span>
       </button>
     </aside>
