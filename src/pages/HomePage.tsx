@@ -609,9 +609,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
               {t.steps.badge}
             </span>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">
               {t.steps.title}
-            </h3>
+            </h2>
             <p className="text-xs sm:text-sm text-slate-400">
               {t.steps.subtitle}
             </p>
@@ -624,9 +624,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-black text-base">
                 1
               </div>
-              <h4 className="text-lg font-bold text-white">
+              <h3 className="text-lg font-bold text-white">
                 {t.steps.step1Title}
-              </h4>
+              </h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 {t.steps.step1Desc}
               </p>
@@ -637,9 +637,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <div className="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 flex items-center justify-center font-black text-base">
                 2
               </div>
-              <h4 className="text-lg font-bold text-white">
+              <h3 className="text-lg font-bold text-white">
                 {t.steps.step2Title}
-              </h4>
+              </h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 {t.steps.step2Desc}
               </p>
@@ -650,9 +650,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/40 flex items-center justify-center font-black text-base">
                 3
               </div>
-              <h4 className="text-lg font-bold text-white">
+              <h3 className="text-lg font-bold text-white">
                 {t.steps.step3Title}
-              </h4>
+              </h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 {t.steps.step3Desc}
               </p>
@@ -669,9 +669,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
               {t.whyUs.badge}
             </span>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               {t.whyUs.title}
-            </h3>
+            </h2>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
               {t.whyUs.subtitle}
             </p>
@@ -686,9 +686,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <div className="w-9 h-9 rounded-lg bg-cyan-950/60 border border-cyan-800/60 flex items-center justify-center text-cyan-400">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
-                <h4 className="text-base font-bold text-white">
+                <h3 className="text-base font-bold text-white">
                   {point.title}
-                </h4>
+                </h3>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   {point.desc}
                 </p>
@@ -700,9 +700,9 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <div className="w-9 h-9 rounded-lg bg-emerald-950/60 border border-emerald-800/60 flex items-center justify-center text-emerald-400">
                 <Store className="w-4 h-4" />
               </div>
-              <h4 className="text-base font-bold text-white">
+              <h3 className="text-base font-bold text-white">
                 {t.whyUs.localMarketTitle}
-              </h4>
+              </h3>
               <p className="text-xs text-slate-400 leading-relaxed">
                 {t.whyUs.localMarketDesc}
               </p>
