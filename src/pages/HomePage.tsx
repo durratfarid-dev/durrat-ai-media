@@ -602,7 +602,159 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 4. 3-STEP PROCESS */}
+      {/* 4. COMPREHENSIVE SERVICE GUIDE & SEO EXPLANATORY CONTENT */}
+      <section id="service-guide-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl bg-slate-900/40 border border-slate-800/80 p-6 sm:p-10 lg:p-12 space-y-10 text-left rtl:text-right">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/70 border border-cyan-800/70 text-cyan-400 text-xs font-bold uppercase tracking-widest">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>{t.serviceGuide.badge}</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white">
+              {t.serviceGuide.title}
+            </h2>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              {t.serviceGuide.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {/* 1. UGC Ads */}
+            <div className="p-6 sm:p-8 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-pink-500/40 transition-colors flex flex-col justify-between space-y-5">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 border border-pink-500/30 flex items-center justify-center">
+                  <Video className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white leading-snug">
+                  {t.serviceGuide.ugc.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {t.serviceGuide.ugc.description}
+                </p>
+                <ul className="space-y-2 pt-2 text-xs sm:text-sm text-slate-300">
+                  {t.serviceGuide.ugc.highlights.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-pink-400 shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="pt-2">
+                <button
+                  id="guide-ugc-action-btn"
+                  onClick={() => onNavigate('ugc')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold text-white bg-pink-600 hover:bg-pink-500 rounded-xl transition-all cursor-pointer"
+                >
+                  <span>{t.serviceGuide.ugc.cta}</span>
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                </button>
+              </div>
+            </div>
+
+            {/* 2. AI Video Creation */}
+            <div className="p-6 sm:p-8 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-cyan-500/40 transition-colors flex flex-col justify-between space-y-5">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center">
+                  <Bot className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white leading-snug">
+                  {t.serviceGuide.aiVideo.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {t.serviceGuide.aiVideo.description}
+                </p>
+                <ul className="space-y-2 pt-2 text-xs sm:text-sm text-slate-300">
+                  {t.serviceGuide.aiVideo.highlights.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="pt-2">
+                <button
+                  id="guide-ai-video-action-btn"
+                  onClick={() => onNavigate('ai-course')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-all cursor-pointer"
+                >
+                  <span>{t.serviceGuide.aiVideo.cta}</span>
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                </button>
+              </div>
+            </div>
+
+            {/* 3. Social Media Marketing */}
+            <div className="p-6 sm:p-8 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-purple-500/40 transition-colors flex flex-col justify-between space-y-5">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center">
+                  <Share2 className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white leading-snug">
+                  {t.serviceGuide.socialMedia.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {t.serviceGuide.socialMedia.description}
+                </p>
+                <ul className="space-y-2 pt-2 text-xs sm:text-sm text-slate-300">
+                  {t.serviceGuide.socialMedia.highlights.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="pt-2">
+                <button
+                  id="guide-social-media-action-btn"
+                  onClick={() => onNavigate('social-course')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold text-white bg-purple-600 hover:bg-purple-500 rounded-xl transition-all cursor-pointer"
+                >
+                  <span>{t.serviceGuide.socialMedia.cta}</span>
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                </button>
+              </div>
+            </div>
+
+            {/* 4. Google Business Profile & Local SEO */}
+            <div className="p-6 sm:p-8 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-emerald-500/40 transition-colors flex flex-col justify-between space-y-5">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white leading-snug">
+                  {t.serviceGuide.googleMaps.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {t.serviceGuide.googleMaps.description}
+                </p>
+                <ul className="space-y-2 pt-2 text-xs sm:text-sm text-slate-300">
+                  {t.serviceGuide.googleMaps.highlights.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="pt-2">
+                <button
+                  id="guide-google-maps-action-btn"
+                  onClick={handleScrollToGoogleMaps}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 text-xs sm:text-sm font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all cursor-pointer"
+                >
+                  <span>{t.serviceGuide.googleMaps.cta}</span>
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. 3-STEP PROCESS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-900/60 border border-slate-800 p-6 sm:p-10 lg:p-12 space-y-8 text-center sm:text-left rtl:sm:text-right">
           <div className="text-center max-w-2xl mx-auto space-y-2">

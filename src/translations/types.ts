@@ -123,6 +123,35 @@ export interface TranslationSchema {
       topProducts: string;
     };
   };
+  serviceGuide: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    ugc: {
+      title: string;
+      description: string;
+      highlights: string[];
+      cta: string;
+    };
+    aiVideo: {
+      title: string;
+      description: string;
+      highlights: string[];
+      cta: string;
+    };
+    socialMedia: {
+      title: string;
+      description: string;
+      highlights: string[];
+      cta: string;
+    };
+    googleMaps: {
+      title: string;
+      description: string;
+      highlights: string[];
+      cta: string;
+    };
+  };
   steps: {
     badge: string;
     title: string;

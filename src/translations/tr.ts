@@ -123,6 +123,55 @@ export const tr: TranslationSchema = {
       topProducts: 'Öne Çıkan Ürünler',
     },
   },
+  serviceGuide: {
+    badge: 'Detaylı Hizmet Rehberi',
+    title: 'Suudi Arabistan ve Küresel Pazarlar İçin Dijital Pazarlama Çözümleri',
+    subtitle: 'Hizmetlerimizin Riyad, Cidde, Dammam mağazalarına ve dijital içerik üreticilerine nasıl katkı sağladığını keşfedin.',
+    ugc: {
+      title: 'UGC Reklamları ve Video Üretimi (Suudi Arabistan & Riyad)',
+      description: 'TikTok, Instagram Reels ve Snapchat için yüksek dönüşüm sağlayan özgün kullanıcı kaynaklı içerik (UGC) video reklamları.',
+      highlights: [
+        'Suudi tüketici alışkanlıklarına uygun yerel içerik üretici tarzı',
+        'İlk 3 saniyede izleyiciyi yakalayan güçlü reklam kancaları',
+        'E-ticaret, moda, restoran ve perakende markaları için ideal',
+        'Reklam kampanyalarına hazır dikey 9:16 yüksek çözünürlük formatı',
+      ],
+      cta: 'Markanız İçin UGC Reklamı İsteyin',
+    },
+    aiVideo: {
+      title: 'Yapay Zeka Video Hizmetleri ve Akıllı İçerik Üretimi',
+      description: 'Üretken yapay zeka ve prompt mühendisliğiyle pahalı stüdyolara gerek kalmadan sinematik video reklamları ve karakterler üretin.',
+      highlights: [
+        'Metinden ve görselden etkileyici video üretimi',
+        'Farklı sahnelerde tutarlı dijital karakter tasarımları',
+        'Gerçekçi ürün görselleri için gelişmiş prompt teknikleri',
+        'Yeni başlayanlar ve girişimciler için pratik eğitim',
+      ],
+      cta: 'Yapay Zeka Video Eğitimini İnceleyin',
+    },
+    socialMedia: {
+      title: 'Sosyal Medya İçerik ve Büyüme Hizmetleri (Riyad & Körfez)',
+      description: 'Instagram Reels, YouTube Shorts ve Facebook sayfalarında organik kitle büyütme ve gelir modelleri geliştirme stratejileri.',
+      highlights: [
+        'YouTube kanal kurulumu ve Shorts büyüme algoritmaları',
+        'Instagram Reels optimizasyonu ve profil marka çalışması',
+        'Facebook işletme sayfası kurulumu ve yayın takvimi',
+        'Gerçek platform algoritmalarına dayalı kanıtlanmış yöntemler',
+      ],
+      cta: 'Sosyal Medya Büyüme Eğitimini Görün',
+    },
+    googleMaps: {
+      title: 'Google İşletme Profili ve Google Haritalar Kurulumu',
+      description: 'Riyad, Cidde ve Dammamdaki işletmelerin haritalarda en üst sırada görünmesi için yerel SEO (Local SEO) desteği.',
+      highlights: [
+        'İşletme adı, açık adres, telefon numarası ve çalışma saatleri',
+        'Yerel arama uyumu için doğru kategori ve hizmet seçimi',
+        'Güven inşa etmek amacıyla mağaza vitrin ve iç mekan fotoğrafları',
+        'Resmi Google politikaları doğrultusunda doğrulama rehberliği',
+      ],
+      cta: 'Google Haritalar Kurulum Desteği Alın',
+    },
+  },
   steps: {
     badge: '3 Basit Adım',
     title: 'Sadece 3 Adımda Kolayca Başlayın!',

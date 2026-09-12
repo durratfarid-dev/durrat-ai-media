@@ -123,6 +123,55 @@ export const id: TranslationSchema = {
       topProducts: 'Produk Unggulan',
     },
   },
+  serviceGuide: {
+    badge: 'Panduan Layanan Lengkap',
+    title: 'Solusi Digital Marketing & Pembuatan Konten Arab Saudi',
+    subtitle: 'Ketahui bagaimana layanan kami membantu bisnis lokal di Riyadh, Jeddah, Dammam serta kreator konten di seluruh dunia.',
+    ugc: {
+      title: 'Iklan UGC & Produksi Video (Arab Saudi & Riyadh)',
+      description: 'Format video User-Generated Content autentik berkonversi tinggi khusus TikTok, Instagram Reels, dan Snapchat.',
+      highlights: [
+        'Gaya kreator natural yang disesuaikan dengan kultur konsumen Arab Saudi',
+        'Hook pembuka 3 detik pertama yang menghentikan scroll pengguna',
+        'Sangat efektif untuk brand e-commerce, fashion, kuliner, dan ritel',
+        'Format vertikal 9:16 definisi tinggi siap pasang iklan',
+      ],
+      cta: 'Pesan Iklan UGC Sekarang',
+    },
+    aiVideo: {
+      title: 'Layanan Video AI & Pembuatan Konten Cerdas',
+      description: 'Pemanfaatan generative AI dan prompt engineering untuk memproduksi video sinematik dan karakter konsisten tanpa studio mahal.',
+      highlights: [
+        'Produksi teks ke video dan gambar ke video berkualitas',
+        'Karakter digital konsisten di berbagai latar adegan',
+        'Prompt engineering mendalam untuk visual produk realistis',
+        'Pelatihan praktis dan ramah pemula',
+      ],
+      cta: 'Pelajari Kursus Video AI',
+    },
+    socialMedia: {
+      title: 'Layanan Konten & Pertumbuhan Media Sosial (Riyadh & GCC)',
+      description: 'Strategi pertumbuhan YouTube Shorts, Instagram Reels, dan Facebook Page untuk membangun audiens loyal dan monetisasi.',
+      highlights: [
+        'Setup channel YouTube dan strategi algoritma Shorts',
+        'Optimasi profil Instagram Reels dan branding',
+        'Setup dan penjadwalan Facebook Page bisnis',
+        'Framework berbasis algoritma nyata',
+      ],
+      cta: 'Pelajari Kursus Media Sosial',
+    },
+    googleMaps: {
+      title: 'Setup Google Business Profile & Google Maps',
+      description: 'Local SEO esensial bagi toko dan bisnis di Riyadh, Jeddah, Dammam agar langsung ditemukan pelanggan terdekat.',
+      highlights: [
+        'Nama bisnis, alamat akurat, nomor telepon, dan jam buka',
+        'Pemilihan kategori tepat untuk relevansi pencarian lokal',
+        'Setup foto etalase, interior, dan produk untuk membangun kepercayaan',
+        'Panduan verifikasi sesuai kebijakan resmi Google',
+      ],
+      cta: 'Bantuan Pendaftaran Google Maps',
+    },
+  },
   steps: {
     badge: '3 Langkah Sederhana',
     title: 'Mulai Hanya dalam 3 Langkah Mudah!',

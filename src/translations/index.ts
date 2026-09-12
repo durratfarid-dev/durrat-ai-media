@@ -61,6 +61,14 @@ export function getTranslation(code: string): TranslationSchema {
       features: chosen.googleBusiness?.features?.length ? chosen.googleBusiness.features : en.googleBusiness.features,
       mockup: { ...en.googleBusiness.mockup, ...(chosen.googleBusiness?.mockup || {}) },
     },
+    serviceGuide: {
+      ...en.serviceGuide,
+      ...(chosen.serviceGuide || {}),
+      ugc: { ...en.serviceGuide.ugc, ...(chosen.serviceGuide?.ugc || {}) },
+      aiVideo: { ...en.serviceGuide.aiVideo, ...(chosen.serviceGuide?.aiVideo || {}) },
+      socialMedia: { ...en.serviceGuide.socialMedia, ...(chosen.serviceGuide?.socialMedia || {}) },
+      googleMaps: { ...en.serviceGuide.googleMaps, ...(chosen.serviceGuide?.googleMaps || {}) },
+    },
     steps: { ...en.steps, ...(chosen.steps || {}) },
     whyUs: {
       ...en.whyUs,
