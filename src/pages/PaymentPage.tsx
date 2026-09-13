@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useConfig } from '../context/ConfigContext';
 import { useLanguage } from '../context/LanguageContext';
+import { openWhatsAppSelector } from '../components/FloatingWhatsApp';
 import { 
   CreditCard, 
   AlertTriangle, 
@@ -233,17 +234,15 @@ Thank you!`);
                 <span>{t.paymentPage.step3}</span>
               </button>
 
-              <a
+              <button
                 id="payment-whatsapp-support-btn"
-                href={config.whatsAppChannelUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                type="button"
+                onClick={openWhatsAppSelector}
                 className="w-full sm:w-auto px-6 py-3.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 hover:bg-emerald-950/70 border border-emerald-800/80 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>{t.common.joinWhatsApp}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+                <span>{t.common.whatsappChat}</span>
+              </button>
             </div>
           </div>
         </div>

@@ -4,11 +4,20 @@ import { SiteConfig } from '../types';
  * Durrat AI Media - Central Editable Configuration
  * All prices, bank details, contact emails, and copy can be customized here.
  */
+const PREFILLED_MESSAGE = encodeURIComponent(
+  'Hello Durrat AI Media, I would like to know more about your services.'
+);
+
+export const WHATSAPP_LINKS = {
+  chat1: `https://wa.me/966576908190?text=${PREFILLED_MESSAGE}`,
+  chat2: `https://wa.me/923219201662?text=${PREFILLED_MESSAGE}`,
+};
+
 export const defaultSiteConfig: SiteConfig = {
   brandName: 'Durrat AI Media',
   tagline: 'AI • UGC • Social Media',
   contactEmail: 'durratfarid@gmail.com',
-  whatsAppChannelUrl: 'https://whatsapp.com/channel/0029VbE0nu2LI8YSgk4qdu2m',
+  whatsAppLinks: WHATSAPP_LINKS,
   prices: {
     ugcStarter: 'Add Price', // Placeholder: e.g., "$99" or "$150"
     ugcProfessional: 'Add Price', // Placeholder: e.g., "$249" or "$399"

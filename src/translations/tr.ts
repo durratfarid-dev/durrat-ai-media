@@ -13,7 +13,7 @@ export const tr: TranslationSchema = {
     learnMore: 'Daha Fazla Bilgi',
     getStarted: 'Hemen Başla',
     contactUs: 'Bize Ulaşın',
-    joinWhatsApp: 'WhatsApp Kanalımıza Katılın',
+    joinWhatsApp: 'WhatsApp ile İletişim',
     whatsappChat: 'WhatsApp ile İletişim',
     exploreServices: 'Hizmetleri İncele',
     step: 'Adım',
@@ -36,7 +36,7 @@ export const tr: TranslationSchema = {
     selectLanguage: 'Dil Seçin',
   },
   hero: {
-    marketBadge: 'Suudi Mağazaları, Küçük İşletmeler, İçerik Üreticileri ve Yeni Başlayanlar İçin',
+    marketBadge: 'Mağazalar, Küçük İşletmeler, İçerik Üreticileri ve Yeni Başlayanlar İçin',
     headline: 'İşletmenizi Dijitale Taşıyın! 🚀',
     subheadline: 'UGC Reklamları • AI Videoları • Sosyal Medya • Google Haritalar',
     description: 'İşletmenizi internette öne çıkarın, yeni müşterilere ulaşın ve dijital varlığınızı hızla büyütün.',
@@ -96,7 +96,7 @@ export const tr: TranslationSchema = {
     badge: 'Google Arama ve Haritalar Kayıt Hizmeti',
     title: '📍 Google İşletme Profili (Google Business Profile)',
     subtitle: 'İşletmenizi Google Arama ve Google Haritalar üzerinde kurun ve optimize edin.',
-    description: 'Riyad, Cidde, Dammam veya Suudi Arabistanın herhangi bir şehrinde dükkanınız, restoranınız veya işletmeniz olsun — müşteriler Google da aradığında adresiniz ve telefonunuz en üstte çıksın!',
+    description: 'Dükkanınız, restoranınız, showroomunuz veya yerel hizmet işletmeniz olsun — müşteriler Google da aradığında adresiniz ve telefonunuz en üstte çıksın!',
     features: [
       'İşletme Profili Kurulumu (Business Profile Setup)',
       'Google Haritalar Kayıt Desteği (Google Maps Listing Assistance)',
@@ -114,7 +114,7 @@ export const tr: TranslationSchema = {
       verifiedBadge: 'DOĞRULANDI',
       businessType: 'Yerel İşletme',
       sampleName: 'Mağaza veya İşletme Adınız',
-      sampleLocation: 'Riyad, Suudi Arabistan',
+      sampleLocation: 'Merkezi Ticaret Bölgesi',
       sampleRating: '(48 Google Yorumu)',
       timing: 'Şimdi Açık • 23:30 Kapanış',
       photosLabel: 'Fotoğraflar ve Ürünler Hazır',
@@ -125,13 +125,13 @@ export const tr: TranslationSchema = {
   },
   serviceGuide: {
     badge: 'Detaylı Hizmet Rehberi',
-    title: 'Suudi Arabistan ve Küresel Pazarlar İçin Dijital Pazarlama Çözümleri',
-    subtitle: 'Hizmetlerimizin Riyad, Cidde, Dammam mağazalarına ve dijital içerik üreticilerine nasıl katkı sağladığını keşfedin.',
+    title: 'İşletmeler ve Üreticiler İçin Dijital Pazarlama Çözümleri',
+    subtitle: 'Hizmetlerimizin mağazalara, işletmelere ve dijital içerik üreticilerine nasıl katkı sağladığını keşfedin.',
     ugc: {
-      title: 'UGC Reklamları ve Video Üretimi (Suudi Arabistan & Riyad)',
+      title: 'UGC Reklamları ve Video Üretimi',
       description: 'TikTok, Instagram Reels ve Snapchat için yüksek dönüşüm sağlayan özgün kullanıcı kaynaklı içerik (UGC) video reklamları.',
       highlights: [
-        'Suudi tüketici alışkanlıklarına uygun yerel içerik üretici tarzı',
+        'Tüketici alışkanlıklarına uygun doğal ve etkileyici içerik üretici tarzı',
         'İlk 3 saniyede izleyiciyi yakalayan güçlü reklam kancaları',
         'E-ticaret, moda, restoran ve perakende markaları için ideal',
         'Reklam kampanyalarına hazır dikey 9:16 yüksek çözünürlük formatı',
@@ -150,7 +150,7 @@ export const tr: TranslationSchema = {
       cta: 'Yapay Zeka Video Eğitimini İnceleyin',
     },
     socialMedia: {
-      title: 'Sosyal Medya İçerik ve Büyüme Hizmetleri (Riyad & Körfez)',
+      title: 'Sosyal Medya İçerik ve Büyüme Hizmetleri',
       description: 'Instagram Reels, YouTube Shorts ve Facebook sayfalarında organik kitle büyütme ve gelir modelleri geliştirme stratejileri.',
       highlights: [
         'YouTube kanal kurulumu ve Shorts büyüme algoritmaları',
@@ -162,7 +162,7 @@ export const tr: TranslationSchema = {
     },
     googleMaps: {
       title: 'Google İşletme Profili ve Google Haritalar Kurulumu',
-      description: 'Riyad, Cidde ve Dammamdaki işletmelerin haritalarda en üst sırada görünmesi için yerel SEO (Local SEO) desteği.',
+      description: 'İşletmelerin haritalarda en üst sırada görünmesi ve yakın müşterileri çekmesi için yerel SEO (Local SEO) desteği.',
       highlights: [
         'İşletme adı, açık adres, telefon numarası ve çalışma saatleri',
         'Yerel arama uyumu için doğru kategori ve hizmet seçimi',
@@ -209,8 +209,8 @@ export const tr: TranslationSchema = {
         desc: 'İnsan yaratıcılığı ile yapay zeka hızının uygun maliyetli ve etkili buluşması.',
       },
     ],
-    localMarketTitle: 'Körfez ve Suudi Pazarı Uzmanlığı',
-    localMarketDesc: 'Bölgesel tüketici davranışları anlayışı, çok dilli destek (Arapça, Urduca, İngilizce) ve yüksek getirili reklamlar.',
+    localMarketTitle: 'Ticari Pazar ve Tüketici Uzmanlığı',
+    localMarketDesc: 'Tüketici davranışları anlayışı, çok dilli destek ve yüksek yatırım getirili (ROI) reklamlar.',
   },
   bottomCta: {
     badge: 'Geleceğe Adım Atın',
@@ -292,7 +292,7 @@ export const tr: TranslationSchema = {
     emailUsDirectly: 'Bize Doğrudan E-posta Gönderin',
   },
   footer: {
-    about: 'Durrat AI Media; Suudi mağazalarını, bölgesel işletmeleri ve içerik üreticilerini UGC reklamları, yapay zeka eğitimleri ve Google Harita kurulumları ile dijitalde büyütür.',
+    about: 'Durrat AI Media; mağazaları, işletmeleri ve içerik üreticilerini UGC reklamları, yapay zeka eğitimleri ve Google Harita kurulumları ile dijitalde büyütür.',
     navigation: 'Hızlı Bağlantılar',
     servicesAndCourses: 'Hizmetler ve Kurslar',
     contactTitle: 'İletişim ve Destek',

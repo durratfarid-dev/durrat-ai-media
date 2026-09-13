@@ -13,7 +13,7 @@ export const id: TranslationSchema = {
     learnMore: 'Pelajari Lebih Lanjut',
     getStarted: 'Mulai Sekarang',
     contactUs: 'Hubungi Kami',
-    joinWhatsApp: 'Gabung Saluran WhatsApp Kami',
+    joinWhatsApp: 'Chat di WhatsApp',
     whatsappChat: 'Chat di WhatsApp',
     exploreServices: 'Lihat Layanan',
     step: 'Langkah',
@@ -36,7 +36,7 @@ export const id: TranslationSchema = {
     selectLanguage: 'Pilih Bahasa',
   },
   hero: {
-    marketBadge: 'Untuk Toko di Arab Saudi, Bisnis Kecil, Kreator & Pemula',
+    marketBadge: 'Untuk Toko, Bisnis Kecil, Kreator & Pemula',
     headline: 'Bawa Bisnis Anda Online! 🚀',
     subheadline: 'Iklan UGC • Video AI • Media Sosial • Google Maps',
     description: 'Tampilkan bisnis Anda secara online, jangkau pelanggan baru, dan kembangkan kehadiran digital Anda dengan mudah.',
@@ -96,7 +96,7 @@ export const id: TranslationSchema = {
     badge: 'Layanan Listing Google Search & Maps',
     title: '📍 Profil Bisnis Google (Google Business Profile)',
     subtitle: 'Setup dan optimalkan bisnis Anda di Google Search dan Google Maps.',
-    description: 'Baik toko retail, restoran, showroom, maupun jasa layanan di Riyadh, Jeddah, Dammam, atau kota mana pun di Arab Saudi — pastikan pelanggan sekitar menemukan lokasi, telepon, dan foto Anda secara instan!',
+    description: 'Baik toko retail, restoran, showroom, maupun jasa layanan — pastikan pelanggan sekitar menemukan lokasi, telepon, dan foto Anda secara instan di Google!',
     features: [
       'Setup Profil Bisnis (Business Profile Setup)',
       'Bantuan Listing Google Maps (Google Maps Listing Assistance)',
@@ -114,7 +114,7 @@ export const id: TranslationSchema = {
       verifiedBadge: 'TERVERIFIKASI',
       businessType: 'Bisnis Lokal',
       sampleName: 'Nama Toko atau Bisnis Anda',
-      sampleLocation: 'Riyadh, Arab Saudi',
+      sampleLocation: 'Area Komersial Pusat',
       sampleRating: '(48 Ulasan Google)',
       timing: 'Buka Sekarang • Tutup 23:30',
       photosLabel: 'Foto & Produk Lengkap',
@@ -125,13 +125,13 @@ export const id: TranslationSchema = {
   },
   serviceGuide: {
     badge: 'Panduan Layanan Lengkap',
-    title: 'Solusi Digital Marketing & Pembuatan Konten Arab Saudi',
-    subtitle: 'Ketahui bagaimana layanan kami membantu bisnis lokal di Riyadh, Jeddah, Dammam serta kreator konten di seluruh dunia.',
+    title: 'Solusi Digital Marketing & Pembuatan Konten untuk Bisnis',
+    subtitle: 'Ketahui bagaimana layanan kami membantu toko, bisnis, serta kreator konten di seluruh dunia membangun kehadiran digital yang kuat.',
     ugc: {
-      title: 'Iklan UGC & Produksi Video (Arab Saudi & Riyadh)',
+      title: 'Iklan UGC & Produksi Video',
       description: 'Format video User-Generated Content autentik berkonversi tinggi khusus TikTok, Instagram Reels, dan Snapchat.',
       highlights: [
-        'Gaya kreator natural yang disesuaikan dengan kultur konsumen Arab Saudi',
+        'Gaya kreator natural yang disesuaikan dengan minat konsumen',
         'Hook pembuka 3 detik pertama yang menghentikan scroll pengguna',
         'Sangat efektif untuk brand e-commerce, fashion, kuliner, dan ritel',
         'Format vertikal 9:16 definisi tinggi siap pasang iklan',
@@ -150,7 +150,7 @@ export const id: TranslationSchema = {
       cta: 'Pelajari Kursus Video AI',
     },
     socialMedia: {
-      title: 'Layanan Konten & Pertumbuhan Media Sosial (Riyadh & GCC)',
+      title: 'Layanan Konten & Pertumbuhan Media Sosial',
       description: 'Strategi pertumbuhan YouTube Shorts, Instagram Reels, dan Facebook Page untuk membangun audiens loyal dan monetisasi.',
       highlights: [
         'Setup channel YouTube dan strategi algoritma Shorts',
@@ -162,7 +162,7 @@ export const id: TranslationSchema = {
     },
     googleMaps: {
       title: 'Setup Google Business Profile & Google Maps',
-      description: 'Local SEO esensial bagi toko dan bisnis di Riyadh, Jeddah, Dammam agar langsung ditemukan pelanggan terdekat.',
+      description: 'Local SEO esensial bagi toko dan bisnis agar langsung ditemukan oleh pelanggan terdekat saat mencari di Google.',
       highlights: [
         'Nama bisnis, alamat akurat, nomor telepon, dan jam buka',
         'Pemilihan kategori tepat untuk relevansi pencarian lokal',
@@ -209,8 +209,8 @@ export const id: TranslationSchema = {
         desc: 'Kombinasi kreativitas manusia dan kecepatan AI untuk menghasilkan aset berkualitas tinggi dengan biaya efisien.',
       },
     ],
-    localMarketTitle: 'Keahlian Pasar Arab Saudi & Teluk',
-    localMarketDesc: 'Pemahaman mendalam tentang perilaku konsumen regional, dukungan multi-bahasa (Arab, Urdu, Inggris), dan iklan dengan ROI tinggi.',
+    localMarketTitle: 'Keahlian Pasar Komersial',
+    localMarketDesc: 'Pemahaman mendalam tentang perilaku konsumen, dukungan multi-bahasa, dan iklan dengan ROI tinggi.',
   },
   bottomCta: {
     badge: 'Ambil Langkah Selanjutnya',
@@ -292,7 +292,7 @@ export const id: TranslationSchema = {
     emailUsDirectly: 'Email Kami Langsung',
   },
   footer: {
-    about: 'Durrat AI Media memberdayakan toko-toko di Arab Saudi, pelaku bisnis, dan kreator konten melalui iklan UGC, edukasi AI, dan setup Google Maps profesional.',
+    about: 'Durrat AI Media memberdayakan toko, pelaku bisnis, dan kreator konten melalui iklan UGC, edukasi AI, dan setup Google Maps profesional.',
     navigation: 'Navigasi',
     servicesAndCourses: 'Layanan & Kursus',
     contactTitle: 'Kontak & Dukungan',

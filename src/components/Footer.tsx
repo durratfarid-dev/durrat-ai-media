@@ -3,6 +3,7 @@ import { PageId } from '../types';
 import { useConfig } from '../context/ConfigContext';
 import { useLanguage } from '../context/LanguageContext';
 import { Mail, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { openWhatsAppSelector } from './FloatingWhatsApp';
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
@@ -119,18 +120,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
 
               <div>
-                <span className="block text-xs text-slate-400 mb-1">{t.common.joinWhatsApp}:</span>
-                <a
+                <span className="block text-xs text-slate-400 mb-1">{t.common.whatsappChat}:</span>
+                <button
                   id="footer-whatsapp-link"
-                  href={config.whatsAppChannelUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-950/40 border border-emerald-800/60 text-emerald-400 hover:text-emerald-300 hover:bg-emerald-950/60 transition-all font-medium text-xs"
+                  type="button"
+                  onClick={openWhatsAppSelector}
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-950/40 border border-emerald-800/60 text-emerald-400 hover:text-emerald-300 hover:bg-emerald-950/60 transition-all font-medium text-xs cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-400" />
-                  <span>{t.common.joinWhatsApp}</span>
+                  <span>{t.common.whatsappChat}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 mx-0.5" />
-                </a>
+                </button>
               </div>
             </div>
           </div>

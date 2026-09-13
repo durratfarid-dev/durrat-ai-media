@@ -1,6 +1,6 @@
 {
   "name": "Durrat AI Media",
-  "description": "Durrat AI Media helps Saudi shops, small businesses, creators and beginners grow online with UGC Ads, AI Videos, Social Media Content, Google Business Profile and digital marketing services.",
+  "description": "Durrat AI Media helps shops, small businesses, creators and beginners grow online with UGC Ads, AI Videos, Social Media Content, Google Business Profile and digital marketing services.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

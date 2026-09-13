@@ -56,7 +56,7 @@ export const assistantTranslations: Record<AssistantLanguage, LocalizedStrings> 
     emailButtonLabel: 'Email Durrat AI Media',
     viewCourseButton: 'View Course',
     contactUsButton: 'Contact Us',
-    joinWhatsAppButton: 'Join Our WhatsApp Channel',
+    joinWhatsAppButton: 'Chat on WhatsApp',
     aiCourseSummary: `The "AI Prompting + AI Video" Course includes:
 
 • AI Prompting:
@@ -76,7 +76,7 @@ export const assistantTranslations: Record<AssistantLanguage, LocalizedStrings> 
 Pricing details and current intake availability can be confirmed directly on our course page or with our team.`,
     socialCourseSummary: `The "Social Media Mastery" Course covers:
 
-• YouTube: Channel setup, content strategy, Shorts, long-form videos, titles & thumbnails, audience growth, monetization basics.
+• YouTube: Content strategy, Shorts, long-form videos, titles & thumbnails, audience growth, monetization basics.
 • Facebook: Page setup, Reels, content strategy, audience growth, monetization basics.
 • Instagram: Reels, content creation, profile optimization, hashtags, audience growth, engagement strategy.
 
@@ -84,9 +84,9 @@ Focused on practical frameworks to build an engaged audience and understand soci
     contactSummary: `Durrat AI Media Direct Contact:
 
 • Email: durratfarid@gmail.com
-• WhatsApp Channel: Official updates, AI tools & creative strategies.
+• WhatsApp: Direct chat for quick consultations & quotes.
 
-Feel free to send us an email directly or join our WhatsApp community below!`,
+Feel free to send us an email directly or chat with us on WhatsApp below!`,
     paymentPolicyResponse: `Official bank transfer details for course enrollments are available on our website's Payment page. 
 
 Payment details can also be provided directly by the Durrat AI Media team upon registration.
@@ -118,7 +118,7 @@ Please note: We never ask for sensitive credentials such as card numbers, PINs, 
     emailButtonLabel: 'مراسلة درّة للوسائط الذكية',
     viewCourseButton: 'عرض تفاصيل الدورة',
     contactUsButton: 'تواصل معنا',
-    joinWhatsAppButton: 'الانضمام لقناة الواتساب',
+    joinWhatsAppButton: 'محادثة عبر واتساب',
     aiCourseSummary: `دورة "أوامر الذكاء الاصطناعي وفيديو AI" تشمل:
 
 • أوامر الذكاء الاصطناعي (AI Prompting):
@@ -142,9 +142,9 @@ Please note: We never ask for sensitive credentials such as card numbers, PINs, 
     contactSummary: `معلومات التواصل المباشر مع درّة للوسائط الذكية:
 
 • البريد الإلكتروني: durratfarid@gmail.com
-• قناة الواتساب الرسمية: لمتابعة أحدث أدوات الذكاء الاصطناعي واستراتيجيات صناعة المحتوى.
+• واتساب: للمحادثة المباشرة والاستفسار السريع عن الخدمات.
 
-يسعدنا تواصلك معنا مباشرة عبر البريد الإلكتروني أو الانضمام لقناتنا على الواتساب!`,
+يسعدنا تواصلك معنا مباشرة عبر البريد الإلكتروني أو المحادثة عبر واتساب!`,
     paymentPolicyResponse: `بيانات التحويل البنكي الرسمية للتسجيل في الدورات متوفرة في صفحة "الدفع" بالموقع. 
 
 كما يمكن تزويدك بالتفاصيل المصرفية مباشرة من قبل فريق درّة للوسائط الذكية عند التسجيل.
@@ -176,7 +176,7 @@ Please note: We never ask for sensitive credentials such as card numbers, PINs, 
     emailButtonLabel: 'درّة اے آئی میڈیا کو ای میل کریں',
     viewCourseButton: 'کورس دیکھیں',
     contactUsButton: 'ہم سے رابطہ کریں',
-    joinWhatsAppButton: 'واٹس ایپ چینل جوائن کریں',
+    joinWhatsAppButton: 'واٹس ایپ پر رابطہ کریں',
     aiCourseSummary: `"اے آئی پرامپٹنگ + اے آئی ویڈیو" کورس میں شامل ہے:
 
 • اے آئی پرامپٹنگ (AI Prompting):
@@ -200,9 +200,9 @@ Please note: We never ask for sensitive credentials such as card numbers, PINs, 
     contactSummary: `درّة اے آئی میڈیا سے براہ راست رابطے کی معلومات:
 
 • ای میل: durratfarid@gmail.com
-• واٹس ایپ چینل: نئی اپڈیٹس اور اے آئی اسٹریٹجیز کے لیے۔
+• واٹس ایپ: سروسز اور معلومات کے لیے براہ راست رابطہ۔
 
-آپ براہ راست ہمیں ای میل کر سکتے ہیں یا نیچے دیے گئے بٹن سے واٹس ایپ چینل جوائن کر سکتے ہیں!`,
+آپ براہ راست ہمیں ای میل کر سکتے ہیں یا واٹس ایپ پر رابطہ کر سکتے ہیں!`,
     paymentPolicyResponse: `کورس فیس کی بینک ٹرانسفر تفصیلات ویب سائٹ کے "Payment" پیج پر موجود ہیں۔
 
 رجسٹریشن کے وقت بینک تفصیلات درّة اے آئی میڈیا کی ٹیم بھی براہ راست فراہم کرتی ہے۔

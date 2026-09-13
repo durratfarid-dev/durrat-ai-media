@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useConfig } from '../context/ConfigContext';
 import { useLanguage } from '../context/LanguageContext';
 import { ContactFormData } from '../types';
+import { openWhatsAppSelector } from '../components/FloatingWhatsApp';
 import { 
   Mail, 
   MessageCircle, 
@@ -110,41 +111,38 @@ Sent from Durrat AI Media Website Contact Form.`;
 
                 <div className="pt-2 border-t border-slate-800">
                   <span className="text-xs text-slate-400 block mb-2">{t.contactPage.directWhatsApp}:</span>
-                  <a
-                    href={config.whatsAppChannelUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-xs"
+                  <button
+                    type="button"
+                    onClick={openWhatsAppSelector}
+                    className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-xs cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>{t.common.whatsappChat}</span>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
 
-            {/* WhatsApp Channel Card */}
+            {/* WhatsApp Chat Card */}
             <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-4">
               <div className="flex items-center gap-2 text-emerald-400">
                 <MessageCircle className="w-5 h-5" />
                 <h3 className="text-base font-bold text-white">
-                  {t.common.joinWhatsApp}
+                  {t.common.whatsappChat}
                 </h3>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
                 {t.whyUs.localMarketDesc}
               </p>
-              <a
-                id="contact-whatsapp-channel-btn"
-                href={config.whatsAppChannelUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                id="contact-whatsapp-chat-btn"
+                type="button"
+                onClick={openWhatsAppSelector}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-950/60 hover:bg-emerald-950/90 text-emerald-400 hover:text-emerald-300 border border-emerald-800/80 font-bold text-xs transition-all shadow-sm cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>{t.common.joinWhatsApp}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+                <span>{t.common.whatsappChat}</span>
+              </button>
             </div>
           </div>
 

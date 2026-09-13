@@ -13,8 +13,10 @@ import {
   Mail, 
   Settings2,
   ExternalLink,
-  MapPin
+  MapPin,
+  MessageCircle
 } from 'lucide-react';
+import { openWhatsAppSelector } from './FloatingWhatsApp';
 
 interface NavbarProps {
   currentPage: PageId;
@@ -169,16 +171,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenQ
             >
               {t.services.cards.ugc.cta}
             </button>
-            <a
+            <button
               id="mobile-whatsapp-btn"
-              href={config.whatsAppChannelUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openWhatsAppSelector();
+              }}
               className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-medium text-emerald-400 hover:text-emerald-300 bg-emerald-950/30 border border-emerald-800/50 rounded-lg transition-colors cursor-pointer"
             >
-              <span>{t.common.joinWhatsApp}</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+              <MessageCircle className="w-3.5 h-3.5" />
+              <span>{t.common.whatsappChat}</span>
+            </button>
           </div>
         </div>
       )}

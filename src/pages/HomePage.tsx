@@ -2,6 +2,7 @@ import React from 'react';
 import { PageId } from '../types';
 import { useConfig } from '../context/ConfigContext';
 import { useLanguage } from '../context/LanguageContext';
+import { openWhatsAppSelector } from '../components/FloatingWhatsApp';
 import { 
   MapPin, 
   Star, 
@@ -124,7 +125,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             
             {/* Friendly Market Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-sm backdrop-blur-md">
-              <span className="text-sm">🇸🇦</span>
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
               <span className="text-xs font-semibold tracking-wide text-slate-200">
                 {t.hero.marketBadge}
               </span>
@@ -150,16 +151,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
             {/* Two Large Friendly CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 pt-2 max-w-md sm:max-w-none mx-auto">
-              <a
+              <button
                 id="hero-whatsapp-talk-btn"
-                href={config.whatsAppChannelUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                type="button"
+                onClick={openWhatsAppSelector}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-9 py-4 text-base sm:text-lg font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-2xl shadow-[0_10px_25px_rgba(16,185,129,0.35)] hover:shadow-[0_12px_30px_rgba(16,185,129,0.5)] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
                 <MessageCircle className="w-6 h-6 fill-current text-white shrink-0" />
                 <span>{t.hero.whatsappCta}</span>
-              </a>
+              </button>
 
               <button
                 id="hero-services-dekhein-btn"
@@ -186,7 +186,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            {/* Friendly Saudi Local Business Banner */}
+            {/* Friendly Local Business Banner */}
             <div className="pt-4 max-w-3xl mx-auto">
               <div className="rounded-2xl bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/90 border border-slate-800 p-3.5 sm:p-4 text-xs sm:text-sm text-slate-300 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left rtl:sm:text-right">
                 <div className="flex items-center gap-3">
@@ -483,17 +483,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
               {/* CTA Action */}
               <div className="flex flex-col sm:flex-row items-center gap-3.5 pt-2">
-                <a
+                <button
                   id="google-maps-service-whatsapp-btn"
-                  href={config.whatsAppChannelUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  type="button"
+                  onClick={openWhatsAppSelector}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-2xl shadow-[0_8px_20px_rgba(16,185,129,0.3)] transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   <MapPin className="w-5 h-5 text-rose-300 fill-rose-300/40" />
                   <span>{t.googleBusiness.cta}</span>
-                  <ExternalLink className="w-4 h-4 opacity-80" />
-                </a>
+                </button>
 
                 <button
                   onClick={() => onNavigate('contact')}
@@ -847,7 +845,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </div>
             ))}
 
-            {/* Sixth highlight card: Local Saudi Market Expertise */}
+            {/* Sixth highlight card: Commercial Market Expertise */}
             <div className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800/80 hover:border-slate-700 transition-colors space-y-2.5">
               <div className="w-9 h-9 rounded-lg bg-emerald-950/60 border border-emerald-800/60 flex items-center justify-center text-emerald-400">
                 <Store className="w-4 h-4" />
@@ -880,16 +878,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             {/* WhatsApp Button */}
-            <a
+            <button
               id="bottom-cta-whatsapp-btn"
-              href={config.whatsAppChannelUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              type="button"
+              onClick={openWhatsAppSelector}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 rounded-2xl shadow-[0_8px_25px_rgba(16,185,129,0.35)] transition-all transform hover:-translate-y-0.5 cursor-pointer"
             >
               <MessageCircle className="w-5 h-5 fill-current text-white" />
               <span>{t.bottomCta.whatsappBtn}</span>
-            </a>
+            </button>
 
             {/* Contact Us Page */}
             <button

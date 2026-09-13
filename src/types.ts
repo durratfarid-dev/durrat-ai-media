@@ -42,7 +42,10 @@ export interface SiteConfig {
   brandName: string;
   tagline: string;
   contactEmail: string;
-  whatsAppChannelUrl: string;
+  whatsAppLinks: {
+    chat1: string;
+    chat2: string;
+  };
   prices: {
     ugcStarter: string;
     ugcProfessional: string;
@@ -74,7 +77,7 @@ export interface UGCIntakeData {
 
 export interface AssistantAction {
   label: string;
-  actionType: 'navigate' | 'mailto' | 'link' | 'restart' | 'edit-ugc' | 'submit-ugc';
+  actionType: 'navigate' | 'mailto' | 'link' | 'restart' | 'edit-ugc' | 'submit-ugc' | 'whatsapp';
   pageId?: PageId;
   url?: string;
   payload?: any;
