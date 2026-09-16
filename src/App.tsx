@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PageId } from './types';
 import { ConfigProvider } from './context/ConfigContext';
 import { LanguageProvider } from './context/LanguageContext';
@@ -51,6 +51,24 @@ export default function App() {
       window.removeEventListener('popstate', handleUrlChange);
     };
   }, []);
+
+  // Google Analytics 4 (GA4): Track page views across client-side route transitions
+  const isFirstMount = useRef(true);
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      const pagePath = currentPage === 'home' ? '/' : `/${currentPage}`;
+      (window as any).gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: pagePath,
+        send_to: 'G-HZF6515HGL',
+      });
+    }
+  }, [currentPage]);
 
   const navigateTo = (page: PageId) => {
     setCurrentPage(page);
