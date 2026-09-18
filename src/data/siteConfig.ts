@@ -10,7 +10,6 @@ const PREFILLED_MESSAGE = encodeURIComponent(
 
 export const WHATSAPP_LINKS = {
   chat1: `https://wa.me/966576908190?text=${PREFILLED_MESSAGE}`,
-  chat2: `https://wa.me/923219201662?text=${PREFILLED_MESSAGE}`,
 };
 
 export const defaultSiteConfig: SiteConfig = {

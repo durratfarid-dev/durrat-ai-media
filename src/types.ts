@@ -44,7 +44,6 @@ export interface SiteConfig {
   contactEmail: string;
   whatsAppLinks: {
     chat1: string;
-    chat2: string;
   };
   prices: {
     ugcStarter: string;
